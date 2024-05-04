@@ -13,7 +13,7 @@
 
     ohMyZsh = {
       enable = true;
-      plugins = [ "git" "sudo" "web-search" "copypath" "copyfile" "copybuffer" "dirhistory" "docker" "podman"];
+      plugins = [ "git" "sudo" "web-search" "copypath" "copyfile" "copybuffer" "dirhistory" "podman"];
       theme = "agnoster";
     };
   };
