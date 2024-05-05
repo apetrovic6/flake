@@ -10,7 +10,7 @@
 
       "$mod" = "SUPER";
 
-      monitor=preferred,auto,auto;
+      monitor = "preferred,auto,auto";
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
       input {

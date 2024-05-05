@@ -2,7 +2,7 @@
 
 {
    imports = [
-     ./hyprlandconf.nix 
+     ./hyprland.nix 
      ./shell-config.nix
    ];
 
