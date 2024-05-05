@@ -16,6 +16,7 @@
       ../../base/gpu/prime
       ../../base/fonts
       ../../base/users
+      ../../base/services
       ../../base/virtualization
       ../../base/virtualization/intel
       ../../hardware-configuration.nix
@@ -135,17 +136,6 @@
 
   # Enable touchpad support (enabled default in most desktopManager).
    services.libinput.enable = true;
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-#  users.users.apetrovic = {
-#    isNormalUser = true;
-#    description = "Ante Petrovic";
-#    extraGroups = [ "networkmanager" "wheel" ];
-#    packages = with pkgs; [
-#      firefox
-#    #  thunderbird
- #   ];
- # };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;

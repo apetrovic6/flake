@@ -2,8 +2,8 @@
 
 {
   services = {
-    tailscale.enable
-  }
+    tailscale.enable = true;
+  };
 }
 
 

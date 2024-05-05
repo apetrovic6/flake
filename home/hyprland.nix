@@ -13,7 +13,7 @@
       monitor = "preferred,auto,auto";
 
       # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
-      input {
+      input = {
         kb_layout = ["us"];
         kb_variant = "";
         kb_model = "";
@@ -22,11 +22,12 @@
 
         follow_mouse = 1;
 
-      touchpad {
+      touchpad = {
         natural_scroll = true;
       };
 
         sensitivity = 0; # -1.0 to 1.0, 0 means no modification.
      };
     };
+  };
 }
