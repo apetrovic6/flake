@@ -2,12 +2,12 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, userSettings, systemSettings, ... }:
+{ config, pkgs, userSettings, systemSettings, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
-      ../../hyprland.nix
+      ../../hyprland.nix 
       ../../base/boot
       ../../base/config
       ../../base/shell

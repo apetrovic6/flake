@@ -2,8 +2,8 @@
 
 {
    imports = [
+     ./hyprlandconf.nix 
      ./shell-config.nix
-     
    ];
 
     home.username = userSettings.username;

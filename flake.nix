@@ -4,6 +4,13 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     
+    hyprland.url = "github:hyprwm/Hyprland";
+
+    hyprland-plugins = {
+     url = "github:hyprwm/hyprland-plugins";
+     inputs.hyprland.follows = "hyprland";
+    };
+
     home-manager =  {
       url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,10 +26,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nixvim,  ... }: 
+  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nixvim,... } @inputs : 
    let
      system = "x86_64-linux";
      inherit (import ./settings.nix) userSettings systemSettings;
@@ -68,6 +74,7 @@
 	  specialArgs =  { 
 	    inherit userSettings; 
 	    inherit systemSettings;
+	    inherit inputs;
 	  };
            
 
