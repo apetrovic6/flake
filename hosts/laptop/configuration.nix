@@ -25,18 +25,26 @@
 #  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_testing;
  
-#boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_latest.override {
-#    argsOverride = rec {
-#      src = pkgs.fetchurl {
-#            url = "https://git.kernel.org/torvalds/t/linux-6.9-rc6.tar.gz";
-#            sha256 = "sha256-2ip0fd/6wM0/MZ/LS8uJTtlDoh4iyTvhnS2+fBq+nUM=";
-#      };
-#      version = "6.9-rc6";
-#      modDirVersion = "6.9-rc6";
-#     };
-#  });
+# services.thermald.enable = true;
 
-#  boot.kernelPackages = pkgs.linuxPackages_testing;
+# services.tlp = {
+#  enable = false;
+#  settings = {
+#    CPU_SCALING_GOVERNOR_ON_AC = "performance";
+#    CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+
+#   CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+#   CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+
+#    CPU_MIN_PERF_ON_AC = 0;
+#    CPU_MAX_PERF_ON_AC = 100;
+#    CPU_MIN_PERF_ON_BAT = 0;
+    #CPU_MAX_PERF_ON_BAT = 50;
+
+    # START_CHARGE_THRESH_BAT0 = 40;
+    # STOP_CHARGE_THRESH_BAT0 = 80;
+#  };
+# };
 
  networking.hostName = systemSettings.hostname; # Define your hostname.
   
