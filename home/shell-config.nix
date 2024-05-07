@@ -4,18 +4,21 @@ let
     la = "ls -la";
     n = "nvim";
   };
-  fetch = "fastfetch -l nixos_old";
+  init = ''
+          fastfetch -l nixos_old
+          eval "$(zoxide init --cmd t zsh)"
+	  '';
 in
 {
  programs.bash = {
   inherit shellAliases;
-  initExtra = fetch;
+  initExtra = init;
   enable = true;
  };
 
  programs.zsh = {
   inherit shellAliases;
-  completionInit = fetch;
+  completionInit = init;
   enable = true;
  };
 }

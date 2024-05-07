@@ -28,7 +28,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nixvim, ... } @inputs : 
+  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nixvim, hyprland,... } @inputs : 
    let
      system = "x86_64-linux";
      inherit (import ./settings.nix) userSettings systemSettings;
@@ -87,6 +87,9 @@
             };
            }
 
+          hyprland.nixosModules.default
+         
+
             nixos-cosmic.nixosModules.default
 
 	    ./hosts/laptop/configuration.nix
@@ -94,6 +97,7 @@
 	      home-manager.extraSpecialArgs =  {
 		inherit userSettings;
 		inherit systemSettings;
+		inherit inputs;
 	      };
         
 

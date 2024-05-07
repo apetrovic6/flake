@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ../../hyprland.nix 
+      ../../hyprlandWM.nix 
       ../../base/boot
       ../../base/config
       ../../base/shell

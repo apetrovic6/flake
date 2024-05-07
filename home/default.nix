@@ -1,8 +1,9 @@
-{ config, pkgs, userSettings, ...}:
+{ config, pkgs, userSettings, inputs ,...}:
 
 {
    imports = [
-     ./hyprland.nix 
+     inputs.hyprland.homeManagerModules.default
+     ./hypr 
      ./shell-config.nix
    ];
 
