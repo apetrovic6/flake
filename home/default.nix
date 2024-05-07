@@ -2,7 +2,7 @@
 
 {
    imports = [
-    # ./hyprland.nix 
+     ./hyprland.nix 
      ./shell-config.nix
    ];
 
@@ -48,7 +48,6 @@
   home.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
-
 
 dconf.settings = {
   "org/virt-manager/virt-manager/connections" = {

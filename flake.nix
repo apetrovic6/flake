@@ -28,7 +28,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nixvim,... } @inputs : 
+  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nixvim, ... } @inputs : 
    let
      system = "x86_64-linux";
      inherit (import ./settings.nix) userSettings systemSettings;
@@ -68,6 +68,7 @@
 
 	  ];
        };
+
        zephyrus = lib.nixosSystem  {
 	  inherit system;
           
@@ -84,7 +85,6 @@
               substituters = [ "https://cosmic.cachix.org/" ];
               trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
             };
-
            }
 
             nixos-cosmic.nixosModules.default
