@@ -71,7 +71,10 @@
 
     bind =
       [
-        "$mod, F, exec, firefox"
+        "$mod, Return, exec, alacritty"
+        "$mod, Q, killactive,"
+        "$mod, M, exit,"
+        "$mod, B, exec, brave-browser"
         ", Print, exec, grimblast copy area"
       ]
       ++ (
