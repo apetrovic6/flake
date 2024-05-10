@@ -3,7 +3,10 @@
 {
   environment.systemPackages = with pkgs; [
     pciutils
+    gcc
+
     vim
+    brightnessctl
     neovim
     alacritty
     wget

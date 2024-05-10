@@ -24,7 +24,10 @@
 
 #  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelPackages = pkgs.linuxPackages_testing;
- 
+
+programs.light.enable = true;
+
+
 # services.thermald.enable = true;
 
 # services.tlp = {
