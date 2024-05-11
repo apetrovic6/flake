@@ -12,6 +12,8 @@
     systemd.enable = true;
     
     settings = {
+    
+    "exec-once" = "waybar &";
 
     # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
     input = {
@@ -37,8 +39,8 @@
       gaps_in = 10;
       gaps_out = 25;
       border_size = 2;
-      col.active_border = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-      col.inactive_border = "rgba(595959aa)";
+      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+      "col.inactive_border" = "rgba(595959aa)";
 
       layout = "dwindle";
 
@@ -63,18 +65,54 @@
       drop_shadow = "yes";
       shadow_range = 4;
       shadow_render_power = 3;
-      col.shadow = "rgba(1a1a1aee)";
+      "col.shadow" = "rgba(1a1a1aee)";
     };
 
+    dwindle = {
+      pseudotile = "yes";
+      preserve_split = "yes";
+    };
+
+    master = {
+      new_is_master = "false";
+    };
+
+   gestures = {
+      workspace_swipe = "on";
+    };
 
     "$mod" = "SUPER";
+    
 
     bind =
       [
         "$mod, Return, exec, alacritty"
         "$mod, Q, killactive,"
         "$mod, M, exit,"
-        "$mod, B, exec, brave-browser"
+
+        "$mod, B, exec, brave"
+        "$mod, $mod_L, exec, rofi -show drun"
+
+        # Move Focus with mod + arrow keys 
+        "$mod, left, moveFocus, l"
+        "$mod, right, moveFocus, r"
+        "$mod, up, moveFocus, u"
+        "$mod, down, moveFocus, d"
+
+        # Move Windows
+        "$mod CTRL, left, moveWindow, l"
+        "$mod CTRL, right, moveWindow, r"
+        "$mod CTRL, up, moveWindow, u"
+        "$mod CTRL, down, moveWindow, d"
+
+        # Resize Windows
+        "$mod SHIFT, left, resizeActive,-50 0"
+        "$mod SHIFT, right, resizeActive,50 0"
+        "$mod SHIFT, up, resizeActive,0 -50"
+        "$mod SHIFT, down, resizeActive,0 50"
+
+
+
         ", Print, exec, grimblast copy area"
       ]
       ++ (

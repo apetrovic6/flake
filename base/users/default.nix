@@ -6,7 +6,7 @@
     isNormalUser = true;
     description = "Ante Petrovic";
     initialPassword = "12345";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" "video" "audio" "camera" "kvm"  "plex" "scanner" "lp" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "libvirtd" "video" "audio" "camera" "kvm"  "plex" "scanner" "lp" ];
     packages = with pkgs; [
 
     ];

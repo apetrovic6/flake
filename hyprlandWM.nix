@@ -9,21 +9,21 @@
 
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
-#  environment.systemPackages = with pkgs; [
+  environment.systemPackages = with pkgs; [
 #    fuzzel
-#    polkit_gnome
-#    wlr-randr
-#    wl-clipboard
-#    hyprland-protocols
-#    swww
-#    hyprlock
-#    hypridle
-#    hyprcursor
-#    hyprdim
-#    pavucontrol
-#    pamixer
-#    grim
-#    slurp
-#    waybar
-#  ];
+    rofi-wayland
+    polkit_gnome
+    wlr-randr
+    wl-clipboard
+    swww
+    hyprlock
+    hypridle
+    hyprcursor
+    hyprdim
+    pavucontrol
+    pamixer
+    grim
+    slurp
+    waybar
+  ];
 }
