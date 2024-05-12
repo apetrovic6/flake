@@ -18,6 +18,7 @@
     discord
     gnome.file-roller
     (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["ideavim" "nixidea"])
+    vimPlugins.LazyVim
     
     plex-media-player
     plexamp
