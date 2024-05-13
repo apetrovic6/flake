@@ -1,0 +1,9 @@
+{ config, pkgs, ... }:
+
+{  
+  hardware.keyboard.zsa.enable = true;
+  environment.systemPackages = with pkgs; [
+    keymapp
+    zsa-udev-rules
+  ];
+}

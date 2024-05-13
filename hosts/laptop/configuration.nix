@@ -9,9 +9,13 @@
     [ # Include the results of the hardware scan.
       ../../hyprlandWM.nix 
       ../../base/boot
+      ../../base/misc/zsa
+      ../../base/networking
       ../../base/config
       ../../base/shell
+      ../../base/asus
       ../../base/pkgs
+      ../../base/gpu/intel
       ../../base/gpu/nvidia
       ../../base/gpu/prime
       ../../base/fonts
@@ -82,20 +86,7 @@ programs.light.enable = true;
     LC_TELEPHONE = "hr_HR.UTF-8";
     LC_TIME = "hr_HR.UTF-8";
   };
-  
-   nixpkgs.config.packageOverrides = pkgs: {
-    intel-vaapi-driver = pkgs.intel-vaapi-driver.override { enableHybridCodec = true; };
-  };
-
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      intel-media-driver
-      libvdpau-va-gl
-    ];
-  };
+   
 
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
 
@@ -109,14 +100,6 @@ programs.light.enable = true;
   services.desktopManager.cosmic.enable = true;
   services.displayManager.cosmic-greeter.enable = true;
 
-
-  services.supergfxd.enable = true;
-  services.asusd = {
-    enable = true;
-    enableUserService = true;
-  };
-
-  
   # Configure keymap in X11
   services.xserver = {
     xkb = {
