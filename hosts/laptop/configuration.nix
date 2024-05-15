@@ -23,13 +23,38 @@
       ../../base/services
       ../../base/virtualization
       ../../base/virtualization/intel
+      ../../base/virtualization/pci-passthrough
       ../../hardware-configuration.nix
     ];
 
 #  boot.kernelPackages = pkgs.linuxPackages_latest;
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+#  boot.kernelPackages = pkgs.linuxPackages_testing;
 
-programs.light.enable = true;
+# boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_testing.override {
+#    argsOverride = rec {
+#      src = pkgs.fetchurl {
+#            url = "https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.tar.xz";
+#            sha256 = "sha256-JPoB+5icej4oRT8Rd5kWhxN2bhGcU4HawwEV8Y8mgUk=";
+#      };
+#      version = "6.9.0";
+#      modDirVersion = "6.9.0";
+#      };
+#  });
+
+ boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_testing.override {
+    argsOverride = rec {
+      src = pkgs.fetchurl {
+            url = "https://git.kernel.org/pub/scm/linux/kernel/git/tiwai/sound.git/snapshot/sound-6.10-rc1.tar.gz";
+            sha256 = "sha256-dd3QIge9qX6286gFBh/FumaCh23ZvQtgRO3Cew/i+iM=";
+      };
+      version = "6.10-rc1";
+      modDirVersion = "6.9.0-rc5";
+      };
+  });
+
+            #url = "mirror://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.tar.xz";
+
+  programs.light.enable = true;
 
 
 # services.thermald.enable = true;
@@ -65,9 +90,6 @@ programs.light.enable = true;
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Enable networking
-  networking.networkmanager.enable = true;
 
   # Set your time zone.
   time.timeZone = systemSettings.timezone;

@@ -9,7 +9,14 @@
       defaultNetwork.settings.dns_enabled = true;
     };
 
-    libvirtd.enable = true;
+    libvirtd = {
+        enable = true;
+       
+        qemu = {
+          ovmf.enable = true;
+          swtpm.enable = true;
+        };
+      };
   };
   
   programs.virt-manager.enable = true;

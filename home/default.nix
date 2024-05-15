@@ -17,6 +17,7 @@
       tree
       zoxide
       protonup
+      ripgrep
     ];
 
     programs.git = {

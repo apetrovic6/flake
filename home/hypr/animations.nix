@@ -1,6 +1,7 @@
 { config, pkgs, ...}:
 
 {
+  wayland.windowManager.hyprland.settings = {
   animations = {
     enabled = yes;
 
@@ -15,4 +16,5 @@
    "animation" = "fade, 1, 7, default";
    "animation" = "workspaces, 1, 6, default";
   };
+  }
 }
