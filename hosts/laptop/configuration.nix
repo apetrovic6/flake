@@ -30,17 +30,6 @@
 #  boot.kernelPackages = pkgs.linuxPackages_latest;
 #  boot.kernelPackages = pkgs.linuxPackages_testing;
 
-# boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_testing.override {
-#    argsOverride = rec {
-#      src = pkgs.fetchurl {
-#            url = "https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.tar.xz";
-#            sha256 = "sha256-JPoB+5icej4oRT8Rd5kWhxN2bhGcU4HawwEV8Y8mgUk=";
-#      };
-#      version = "6.9.0";
-#      modDirVersion = "6.9.0";
-#      };
-#  });
-
  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_testing.override {
     argsOverride = rec {
       src = pkgs.fetchurl {
@@ -51,8 +40,6 @@
       modDirVersion = "6.9.0-rc5";
       };
   });
-
-            #url = "mirror://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.9.tar.xz";
 
   programs.light.enable = true;
 
