@@ -24,7 +24,7 @@
       ../../base/virtualization
       ../../base/virtualization/intel
       ../../base/virtualization/pci-passthrough
-      ../../hardware-configuration.nix
+      ./hardware.nix
     ];
 
 #  boot.kernelPackages = pkgs.linuxPackages_latest;

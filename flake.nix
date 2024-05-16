@@ -42,16 +42,29 @@
 
   in {
      nixosConfigurations =  {
-       nix = lib.nixosSystem  {
-	  inherit system;
+      citadel = lib.nixosSystem  {
+   	  inherit system;
           
-	  specialArgs =  { 
+	     specialArgs =  { 
 	    inherit userSettings; 
 	    inherit systemSettings;
 	  };
 
 	  modules = [
 	    ./configuration.nix
+
+   {
+            nix.settings = {
+              substituters = [ "https://cosmic.cachix.org/" ];
+              trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
+            };
+           }
+
+            hyprland.nixosModules.default
+            nixos-cosmic.nixosModules.default
+
+
+
 	    home-manager.nixosModules.home-manager  {
 	      home-manager.extraSpecialArgs =  {
 		inherit userSettings;
@@ -70,14 +83,13 @@
        };
 
        zephyrus = lib.nixosSystem  {
-	  inherit system;
+	      inherit system;
           
-	  specialArgs =  { 
-	    inherit userSettings; 
-	    inherit systemSettings;
-	    inherit inputs;
-	  };
-           
+	      specialArgs =  { 
+	        inherit userSettings; 
+	        inherit systemSettings;
+	        inherit inputs;
+	      };
 
 	  modules = [
            {
@@ -87,17 +99,15 @@
             };
            }
 
-          hyprland.nixosModules.default
-         
-
+            hyprland.nixosModules.default
             nixos-cosmic.nixosModules.default
 
 	    ./hosts/laptop/configuration.nix
 	    home-manager.nixosModules.home-manager  {
 	      home-manager.extraSpecialArgs =  {
-		inherit userSettings;
-		inherit systemSettings;
-		inherit inputs;
+		      inherit userSettings;
+		      inherit systemSettings;
+		      inherit inputs;
 	      };
         
 
