@@ -2,7 +2,7 @@
      system = "x86_64-linux";
 
      systemSettings = {
-       hostname = "zephyrus";
+       hostname = "citadel";
        timezone = "Europe/Zagreb";
      };
 

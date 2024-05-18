@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ../../hyprlandWM.nix 
+#      ../../hyprlandWM.nix 
       ../../base/boot
       ../../base/misc/zsa
       ../../base/networking
@@ -22,18 +22,20 @@
       ../../base/desktop
       ../../base/services
       ../../base/virtualization
+      ./hardware.nix
     ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-  networking.hostName = systemSettings.hostname; # Define your hostname.
+  networking.hostName = "citadel"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-
+  # Override display manager
+#  services.xserver.displayManager.gdm.enable = true;
 
   # Set your time zone.
   time.timeZone = systemSettings.timezone;
@@ -74,7 +76,7 @@
   ];
 
   services.blueman.enable = true;
-#  services.gnome.gnome-keyring.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   hardware.bluetooth.enable = true;
   

@@ -42,18 +42,19 @@
 
   in {
      nixosConfigurations =  {
-      citadel = lib.nixosSystem  {
-   	  inherit system;
- 
-	     specialArgs =  {
-	    inherit userSettings;
-	    inherit systemSettings;
-	  };
+   
 
-	  modules = [
-	    ./configuration.nix
+       citadel = lib.nixosSystem  {
+              inherit system;
 
-   {
+              specialArgs =  { 
+                inherit userSettings; 
+                inherit systemSettings;
+                inherit inputs;
+              };
+
+          modules = [
+           {
             nix.settings = {
               substituters = [ "https://cosmic.cachix.org/" ];
               trusted-public-keys = [ "cosmic.cachix.org-1:Dya9IyXD4xdBehWjrkPv6rtxpmMdRel02smYzA85dPE=" ];
@@ -63,24 +64,27 @@
             hyprland.nixosModules.default
             nixos-cosmic.nixosModules.default
 
+            ./hosts/desktop/configuration.nix
+            home-manager.nixosModules.home-manager  {
+              home-manager.extraSpecialArgs =  {
+                      inherit userSettings;
+                      inherit systemSettings;
+                      inherit inputs;
+              };
 
 
-	    home-manager.nixosModules.home-manager  {
-	      home-manager.extraSpecialArgs =  {
-		inherit userSettings;
-		inherit systemSettings;
-	      };
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${userSettings.username} = {
+                imports = [ ./home ];
+              };
+            }
 
-	      home-manager.useGlobalPkgs = true;
-	      home-manager.useUserPackages = true;
-	      home-manager.users.${userSettings.username} = {
-	        imports = [ ./home ];
-
-	      };
-	    }
-
-	  ];
+          ];
        };
+
+
+
 
        zephyrus = lib.nixosSystem  {
 	      inherit system;

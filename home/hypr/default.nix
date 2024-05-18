@@ -3,7 +3,7 @@
 {
   imports = [
 #    ./animations.nix
-     ./decorations.nix
+#     ./decorations.nix
   ];
 
 
@@ -13,8 +13,15 @@
     systemd.enable = true;
     
     settings = {
-    
-    "exec-once" = "waybar &";
+
+    env = [
+            "LIBVA_DRIVER_NAME,nvidia"
+            "XDG_SESSION_TYPE,wayland"
+     	    "GBM_BACKEND,nvidia-drm"
+  	    "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+	];
+
+#    "exec-once" = "waybar &";
 
     # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
     input = {
@@ -60,7 +67,7 @@
     };
 
    gestures = {
-      workspace_swipe = "on";
+      workspace_swipe = "off";
     };
 
     "$mod" = "SUPER";
