@@ -11,8 +11,10 @@
       ../../base/boot
       ../../base/misc/zsa
       ../../base/networking
+      ../../base/cuda
       ../../base/config
       ../../base/shell
+      ../../base/sound
       ../../base/asus
       ../../base/pkgs
       ../../base/gpu/intel
@@ -21,6 +23,7 @@
       ../../base/fonts
       ../../base/users
       ../../base/services
+      ../../base/desktop
       ../../base/virtualization
       ../../base/virtualization/intel
       ../../base/virtualization/pci-passthrough
@@ -68,10 +71,6 @@
  networking.hostName = systemSettings.hostname; # Define your hostname.
   
 
-  nixpkgs.config = {
-   cudaSupport = true;
-  };
-
 #  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -99,43 +98,10 @@
 
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-#  services.xserver.displayManager.gdm.enable = true;
-#  services.xserver.desktopManager.gnome.enable = true;
-
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
    services.libinput.enable = true;
@@ -149,7 +115,8 @@
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
+  #
+  # started in user sssions.
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {
   #   enable = true;

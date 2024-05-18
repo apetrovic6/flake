@@ -44,9 +44,9 @@
      nixosConfigurations =  {
       citadel = lib.nixosSystem  {
    	  inherit system;
-          
-	     specialArgs =  { 
-	    inherit userSettings; 
+ 
+	     specialArgs =  {
+	    inherit userSettings;
 	    inherit systemSettings;
 	  };
 

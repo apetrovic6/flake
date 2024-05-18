@@ -7,17 +7,24 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hyprland.nix
-      ./base/boot
-      ./base/config
-      ./base/pkgs
-      ./base/shell
-      ./base/fonts
-      ./base/users
-      ./base/virtualization
-      ./hardware-configuration.nix
+      ../../hyprlandWM.nix 
+      ../../base/boot
+      ../../base/misc/zsa
+      ../../base/networking
+      ../../base/cuda
+      ../../base/config
+      ../../base/shell
+      ../../base/pkgs
+      ../../base/gpu/nvidia
+      ../../base/sound
+      ../../base/fonts
+      ../../base/users
+      ../../base/desktop
+      ../../base/services
+      ../../base/virtualization
     ];
 
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = systemSettings.hostname; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -26,8 +33,7 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+
 
   # Set your time zone.
   time.timeZone = systemSettings.timezone;
@@ -49,49 +55,8 @@
 
   programs.steam.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm = {
-    enable = true;
-    wayland = true;
-  };
-
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "";
-    };
-  };
-
-
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
 
 
   # Allow unfree packages
@@ -100,8 +65,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    jetbrains.jdk
-    jetbrains.jcef
     jetbrains.writerside
     jetbrains.rust-rover
     jetbrains.pycharm-professional
@@ -111,22 +74,10 @@
   ];
 
   services.blueman.enable = true;
-  services.gnome.gnome-keyring.enable = true;
+#  services.gnome.gnome-keyring.enable = true;
 
   hardware.bluetooth.enable = true;
   
-  hardware.opengl = {
-   enable = true;
-   driSupport = true;
-   driSupport32Bit = true;
-  };
-
-  services.xserver.videoDrivers = ["nvidia"];
-
-  hardware.nvidia =  {
-      modesetting.enable = true;
-      nvidiaSettings = true;
-  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
