@@ -35,7 +35,7 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Override display manager
-#  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   # Set your time zone.
   time.timeZone = systemSettings.timezone;
