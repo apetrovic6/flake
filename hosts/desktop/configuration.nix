@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-#      ../../hyprlandWM.nix 
+      ../../hyprlandWM.nix 
       ../../base/boot
       ../../base/misc/zsa
       ../../base/networking
@@ -25,7 +25,7 @@
       ./hardware.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_testing;
 
   networking.hostName = "citadel"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
