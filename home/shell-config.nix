@@ -6,19 +6,18 @@ let
   };
   init = ''
           fastfetch -l nixos_old
-          eval "$(zoxide init --cmd t zsh)"
 	  '';
 in
 {
  programs.bash = {
   inherit shellAliases;
-  initExtra = init;
+  initExtra = init + "eval \"$(zoxide init --cmd t bash)\"";
   enable = true;
  };
 
  programs.zsh = {
   inherit shellAliases;
-  completionInit = init;
+  completionInit = init + "eval \"$(zoxide init --cmd t zsh)\"";
   enable = true;
  };
 }
