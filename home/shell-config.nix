@@ -7,17 +7,20 @@ let
   init = ''
           fastfetch -l nixos_old
 	  '';
+
+    zoxide_bash = "eval \"$(zoxide init --cmd t bash)\"";
+    zoxide_zsh = "eval \"$(zoxide init --cmd t zsh)\"";
 in
 {
  programs.bash = {
   inherit shellAliases;
-  initExtra = init + "eval \"$(zoxide init --cmd t bash)\"";
+  initExtra = init + zoxide_bash;
   enable = true;
  };
 
  programs.zsh = {
   inherit shellAliases;
-  completionInit = init + "eval \"$(zoxide init --cmd t zsh)\"";
+  completionInit = init + zoxide_zsh;
   enable = true;
  };
 }
