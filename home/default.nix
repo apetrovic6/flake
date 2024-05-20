@@ -53,6 +53,9 @@
 #  };
 
 
+xdg.enable = true;
+
+
   home.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
   };
@@ -64,6 +67,12 @@ dconf.settings = {
   };
 };
 
+
+home.file = {
+    ".config/fastfetch/config.jsonc" = {
+      source = ./fastfetch/config.jsonc;
+    };
+  };
 
 
    home.stateVersion = "23.11";

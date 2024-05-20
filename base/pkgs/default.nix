@@ -20,6 +20,7 @@
     (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["ideavim" "nixidea"])
     vimPlugins.LazyVim
     vscode.fhs 
+    xfce.thunar
 
     plex-media-player
     plexamp

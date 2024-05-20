@@ -2,8 +2,8 @@
 
 {
   imports = [
-#    ./animations.nix
-#     ./decorations.nix
+    ./animations.nix
+    ./decorations.nix
   ];
 
 
@@ -21,7 +21,7 @@
   	    "__GLX_VENDOR_LIBRARY_NAME,nvidia"
 	];
 
-#    "exec-once" = "waybar &";
+    "exec-once" = "waybar &";
 
     # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
     input = {
@@ -67,7 +67,7 @@
     };
 
    gestures = {
-      workspace_swipe = "off";
+      workspace_swipe = "true";
     };
 
     "$mod" = "SUPER";
@@ -76,6 +76,8 @@
     bind =
       [
         "$mod, Return, exec, alacritty"
+        "$mod, E, exec, cosmic-files"
+
         "$mod, Q, killactive,"
         "$mod, M, exit,"
 

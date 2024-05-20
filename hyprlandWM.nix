@@ -16,7 +16,8 @@
   environment.systemPackages = with pkgs; [
 #    fuzzel
     rofi-wayland
-    polkit_gnome
+    xdg-desktop-portal-hyprland
+   polkit_gnome
     wlr-randr
     wl-clipboard
     swww
