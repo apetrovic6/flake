@@ -17,11 +17,16 @@
     env = [
             "LIBVA_DRIVER_NAME,nvidia"
             "XDG_SESSION_TYPE,wayland"
-     	    "GBM_BACKEND,nvidia-drm"
-  	    "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+     	      "GBM_BACKEND,nvidia-drm"
+  	        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+            "WLR_DRM_DEVICES,/dev/dri/card1"
+
 	];
 
-    "exec-once" = "waybar &";
+    "exec-once" = [
+             "waybar &"
+             "swww-daemon &"
+             ];
 
     # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
     input = {
