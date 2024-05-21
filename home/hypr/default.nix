@@ -14,6 +14,8 @@
     
     settings = {
 
+    monitor="DP-3,3840x2160@120,0x0,1";
+
     env = [
             "LIBVA_DRIVER_NAME,nvidia"
             "XDG_SESSION_TYPE,wayland"
@@ -75,6 +77,28 @@
       workspace_swipe = "true";
     };
 
+
+
+    "windowrulev2" = [
+      # Picture-in-a-Picture (PIP) rules: Oddly, some need re-duplication.  This is because the window for
+      # PIP changes after on first launch, and will not inherant the rules...
+      "opacity 0.95 0.75,title:^(Picture in picture)$"  # for opacity: [focus num] [bg num]
+      
+      # Interestingly, the opacity rule above doesn't need the reduplication?
+      "pin,title:^(Picture in picture)$"
+
+      #windowrulev2=pin,title:^(Firefox)$ 
+      "float, title:^(Picture in picture)$"
+
+      #windowrulev2=float, title:^(Firefox)$
+      "size 25% 25%,title:^(Picture in picture)$"
+
+      #windowrulev2=size 25% 25%,title:^(Firefox)$ 
+      "move 72% 7%,title:^(Picture in picture)$"
+      #windowrulev2=move 72% 7%,title:^(Firefox)$ 
+    ];
+
+
     "$mod" = "SUPER";
     
 
@@ -107,6 +131,13 @@
         "$mod SHIFT, up, resizeActive,0 -50"
         "$mod SHIFT, down, resizeActive,0 50"
 
+        # Scroll through existing workspaces with mainMod + scroll
+        "$mod, mouse_right, workspace, e+1"
+        "$mod, mouse_left, workspace, e-1"
+
+        # Move/resize windows with mainMod + LMB/RMB and dragging
+        "$mod, mouse:272, movewindow"
+        "$mod, mouse:273, resizeActive"
 
 
         ", Print, exec, grimblast copy area"

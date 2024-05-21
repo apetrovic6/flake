@@ -21,6 +21,7 @@
     vimPlugins.LazyVim
     vscode.fhs 
     xfce.thunar
+    bluetuith
 
     plex-media-player
     plexamp
