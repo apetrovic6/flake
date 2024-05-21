@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, userSettings, systemSettings, ... }:
+{ config, pkgs, userSettings, systemSettings, stylix, ... }:
 
 {
   imports =
@@ -20,6 +20,7 @@
       ../../base/fonts
       ../../base/users
       ../../base/desktop
+      ../../base/stylix
       ../../base/services
       ../../base/virtualization
       ./hardware.nix

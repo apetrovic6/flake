@@ -30,7 +30,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nixvim, hyprland, stylix,... } @inputs : 
+  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nixvim, hyprland, stylix, ... } @inputs : 
    let
      system = "x86_64-linux";
      inherit (import ./settings.nix) userSettings systemSettings;
@@ -56,7 +56,7 @@
               };
 
           modules = [
-#           stylix.nixosModules.stylix
+           stylix.nixosModules.stylix
 
            {
             nix.settings = {
@@ -80,7 +80,9 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.${userSettings.username} = {
-                imports = [ ./home ];
+                imports = [
+		  ./home 
+		];
               };
             }
 
@@ -109,7 +111,7 @@
 
             hyprland.nixosModules.default
             nixos-cosmic.nixosModules.default
-	    stylix.nixosModules.stylix
+            stylix.nixosModules.stylix
 
 	    ./hosts/laptop/configuration.nix
 
