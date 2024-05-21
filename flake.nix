@@ -26,9 +26,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    stylix.url = "github:danth/stylix";
+
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nixvim, hyprland,... } @inputs : 
+  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nixvim, hyprland, stylix,... } @inputs : 
    let
      system = "x86_64-linux";
      inherit (import ./settings.nix) userSettings systemSettings;
@@ -54,6 +56,8 @@
               };
 
           modules = [
+#           stylix.nixosModules.stylix
+
            {
             nix.settings = {
               substituters = [ "https://cosmic.cachix.org/" ];
@@ -105,8 +109,10 @@
 
             hyprland.nixosModules.default
             nixos-cosmic.nixosModules.default
+	    stylix.nixosModules.stylix
 
 	    ./hosts/laptop/configuration.nix
+
 	    home-manager.nixosModules.home-manager  {
 	      home-manager.extraSpecialArgs =  {
 		      inherit userSettings;

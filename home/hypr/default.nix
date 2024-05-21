@@ -141,6 +141,10 @@
 
 
         ", Print, exec, grimblast copy area"
+
+	# Screenshot 
+        "$mod SHIFT, S,exec, grim -g \"$(slurp)\" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png" # screenshot of a region 
+        "$mod SHIFT CTRL, S, exec, grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png" # screenshot of the whole screen
       ]
       ++ (
         # workspaces
