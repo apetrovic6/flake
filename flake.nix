@@ -56,7 +56,7 @@
               };
 
           modules = [
- #          stylix.nixosModules.stylix
+#           stylix.nixosModules.stylix
 
            {
             nix.settings = {

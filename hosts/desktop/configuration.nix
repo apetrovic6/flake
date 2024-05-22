@@ -28,8 +28,8 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
-systemd.network.wait-online.enable = false;
-boot.initrd.systemd.network.wait-online.enable = false;
+#  systemd.network.wait-online.enable = false;
+#  boot.initrd.systemd.network.wait-online.enable = false;
 
   networking.hostName = "citadel"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
