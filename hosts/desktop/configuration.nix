@@ -26,7 +26,7 @@
       ./hardware.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages_testing;
 
 #  systemd.network.wait-online.enable = false;
 #  boot.initrd.systemd.network.wait-online.enable = false;
