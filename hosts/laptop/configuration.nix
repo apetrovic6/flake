@@ -24,6 +24,7 @@
       ../../base/users
       ../../base/services
       ../../base/desktop
+#      ../../base/stylix
       ../../base/virtualization
       ../../base/virtualization/intel
       ../../base/virtualization/pci-passthrough
@@ -32,6 +33,7 @@
 
 #  boot.kernelPackages = pkgs.linuxPackages_latest;
 #  boot.kernelPackages = pkgs.linuxPackages_testing;
+
 
  boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_testing.override {
     argsOverride = rec {
