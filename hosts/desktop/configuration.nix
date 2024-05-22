@@ -20,13 +20,16 @@
       ../../base/fonts
       ../../base/users
       ../../base/desktop
-      ../../base/stylix
+#      ../../base/stylix
       ../../base/services
       ../../base/virtualization
       ./hardware.nix
     ];
 
-  boot.kernelPackages = pkgs.linuxPackages_testing;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+
+systemd.network.wait-online.enable = false;
+boot.initrd.systemd.network.wait-online.enable = false;
 
   networking.hostName = "citadel"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

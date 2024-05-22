@@ -1,4 +1,4 @@
-{ config, pkgs, userSettings, inputs ,...}:
+{ config, pkgs, userSettings, inputs, ...}:
 
 {
    imports = [
@@ -9,6 +9,7 @@
 
     home.username = userSettings.username;
     home.homeDirectory = "/home/${userSettings.username}";
+
 
     home.packages = with pkgs; [
       htop
