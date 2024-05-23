@@ -22,6 +22,7 @@
     vscode.fhs 
     xfce.thunar
     bluetuith
+    lm_sensors
 
     plex-media-player
     plexamp
