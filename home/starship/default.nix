@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, lib, ...}:
 
 {
 # starship - an customizable prompt for any shell
@@ -27,6 +27,7 @@
     "$git_metrics"
     "$git_status"
     "$golang"
+    "$nix_shell"
 
     "$character"
   ];
@@ -74,10 +75,14 @@
        style = "bold italic blue";
      };
 
-    golang =  {
-      format = "[ $version](bold cyan)";
-      detect_files = ["go.mod"];
-      symbol = "";
+#    golang =  {
+#      format = "[ $version](bold cyan)";
+#      detect_files = ["go.mod"];
+#      symbol = "";
+#    };
+
+    nix_shell =  {
+      format = "via [☃️ $state( \($name\))](bold blue) ";
     };
 
     };
