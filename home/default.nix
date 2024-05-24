@@ -1,9 +1,10 @@
-{ config, pkgs, userSettings, inputs, ...}:
+{ config, pkgs, lib, userSettings, inputs, ...}:
 
 {
    imports = [
      inputs.hyprland.homeManagerModules.default
      ./hypr 
+     ./starship
      ./shell-config.nix
    ];
 
@@ -19,6 +20,12 @@
       zoxide
       protonup
       ripgrep
+      unzip
+      p7zip
+      jq
+      fzf
+      nmap
+      usbutils
     ];
 
     programs.git = {
@@ -32,6 +39,27 @@
     package = pkgs.vscode.fhs;
   };
 
+ # set cursor size and dpi for 4k monitor
+  xresources.properties = {
+    "Xcursor.size" = 16;
+    "Xft.dpi" = 172;
+  };
+
+ 
+ # alacritty - a cross-platform, GPU-accelerated terminal emulator
+  programs.alacritty = {
+    enable = true;
+    # custom settings
+    settings = {
+      env.TERM = "xterm-256color";
+      font = {
+        size = 12;
+   #     draw_bold_text_with_bright_colors = true;
+      };
+      scrolling.multiplier = 5;
+      selection.save_to_clipboard = true;
+    };
+  };
 
 #   programs.neovim = {
 #    enable = true;
