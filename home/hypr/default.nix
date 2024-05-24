@@ -108,7 +108,7 @@
         "$mod, E, exec, cosmic-files"
 
         "$mod, Q, killactive,"
-        "$mod, M, exit,"
+        "$mod SHIFT, M, exit,"
 
         "$mod, B, exec, brave"
         "$mod, $mod_L, exec, rofi -show drun"
