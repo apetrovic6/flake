@@ -77,17 +77,13 @@
         };
       };
 
-#     package = {
-#       format = "via [🎁 $version](208 bold)";
-#     };
-
      character =  {
        success_symbol = "[󱞪](bold green)";
        error_symbol = "[](bold red)";
      };
 
      directory =  {
-       read_only = "";
+       read_only = " ";
        truncation_length = 10;
        truncate_to_repo = true;
        format = "[in](bold) [$path]($style)[$read_only]($read_only_style) ";
