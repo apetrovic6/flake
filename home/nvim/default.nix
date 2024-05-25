@@ -18,6 +18,8 @@
       oil.enable = true;
       treesitter.enable = true;
       luasnip.enable = true;
+      which-key.enable = true;
+      nvim-tree.enable = true;
     };
 
     plugins.lsp = {
@@ -36,6 +38,12 @@
 	};
         
       };
+
+
+      keymaps.diagnostic =  {
+       "<leader>j" = "goto_next";
+       "<leader>k" = "goto_prev";
+      };
     };
 
    plugins.cmp = {
@@ -51,20 +59,33 @@
    
    }; 
 
-
-
-
  keymaps = [
     {
       action = "<cmd>Telescope live_grep<CR>";
-      key = "<leader>g";
+      key = "<leader>fg";
     }
+
+    {
+      action = "<cmd>Telescope find_files<cr>";
+      key = "<leader>ff";
+    }
+
+    {
+      action = "<cmd>Telescope buffers<cr>";
+      key = "<leader>fb";
+    }
+
+    {
+      action = "<cmd>Telescope help_tags<cr>";
+      key = "<leader>fh";
+    }
+
   ];
 
   clipboard.providers.wl-copy.enable = true;
 
-#    colorschemes.gruvbox.enable = true;
-    colorschemes.nord.enable = true;
+    colorschemes.gruvbox.enable = true;
+#    colorschemes.nord.enable = true;
 
   };
 
