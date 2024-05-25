@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
+
 {
- # alacritty - a cross-platform, GPU-accelerated terminal emulator
   programs.alacritty = {
     enable = true;
     # custom settings
@@ -12,8 +12,8 @@
           family = "FiraCodeNerdFont";
 	  style = "Retina";
 	};
+      };
 
-};
      window = {
 	padding =  {
 	  x = 15;
@@ -22,9 +22,8 @@
 
 	};
    #     draw_bold_text_with_bright_colors = true;
-scrolling.multiplier = 5;
+      scrolling.multiplier = 5;
       selection.save_to_clipboard = true;
-
       };
-          };
+   };
 }
