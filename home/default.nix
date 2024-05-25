@@ -4,6 +4,7 @@
    imports = [
      inputs.hyprland.homeManagerModules.default
      ./hypr 
+#     ./nvim
      ./starship
      ./alacritty
      ./shell-config.nix
@@ -46,21 +47,6 @@
     "Xft.dpi" = 172;
   };
 
- 
-
-
-#   programs.neovim = {
-#    enable = true;
-#
-#    viAlias = true;
-#    vimAlias = true;
-#    vimdiffAlias = true;
-#   }
-
-#    programs.nixvim = {
-#      enable = true;
-#      defaultEditor = true;
-#    };
 
 #  xdg = {
 #   userDirs = {

@@ -16,11 +16,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    
     nixos-cosmic = {
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -30,7 +25,7 @@
 
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nixvim, hyprland, stylix, ... } @inputs : 
+  outputs = { self, nixpkgs, home-manager, nixos-cosmic, hyprland, stylix, ... } @inputs : 
    let
      system = "x86_64-linux";
      inherit (import ./settings.nix) userSettings systemSettings;
@@ -88,8 +83,6 @@
 
           ];
        };
-
-
 
 
        zephyrus = lib.nixosSystem  {
