@@ -7,7 +7,6 @@
 
     vim
     brightnessctl
-    neovim
     alacritty
     wget
     git
@@ -18,7 +17,6 @@
     discord
     gnome.file-roller
     (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["ideavim" "nixidea"])
-    vimPlugins.LazyVim
     vscode.fhs 
     xfce.thunar
     bluetuith

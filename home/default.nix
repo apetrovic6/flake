@@ -3,8 +3,9 @@
 {
    imports = [
      inputs.hyprland.homeManagerModules.default
+     inputs.nixvim.homeManagerModules.nixvim 
      ./hypr 
-#     ./nvim
+     ./nvim
      ./starship
      ./alacritty
      ./shell-config.nix
@@ -12,7 +13,6 @@
 
     home.username = userSettings.username;
     home.homeDirectory = "/home/${userSettings.username}";
-
 
     home.packages = with pkgs; [
       htop
@@ -48,15 +48,13 @@
   };
 
 
-#  xdg = {
+  xdg = {
+   enable = true;
 #   userDirs = {
 #      enable = true;
 #      createDirectories = true;
 #    };
-#  };
-
-
-  xdg.enable = true;
+  };
 
 
   home.sessionVariables = {
