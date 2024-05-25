@@ -13,23 +13,42 @@
       add_newline = false;
       aws.disabled = true;
       gcloud.disabled = true;
-      line_break.disabled = true;
      format = lib.concatStrings [
     "$os"
     "$username"
     "$hostname"
-    "$package"
-    "$go"
     "$directory"
     "$git_branch"
     "$git_commit"
     "$git_state"
     "$git_metrics"
     "$git_status"
+
+    "$fill"
+
     "$golang"
+    "$kotlin"
+    "$nodejs"
+    "$dotnet"
+    "$rust"
+    "$python"
+    "$c"
+    "$cmake"
+
+    "$container"
+    "$docker_context"
+    "$kubernetes"
+    
     "$nix_shell"
 
+    "$cmd_duration"
+    "$jobs"
+    "$time"
+
+    "$line_break"
     "$character"
+
+
   ];
       username =  {
       style_user = "white bold";
@@ -50,7 +69,7 @@
 
 
       os = {
-        format = " [$symbol]($style)";
+        format = "[$symbol]($style) ";
         style = "bold blue";
         disabled = false;
         symbols = {
@@ -63,7 +82,7 @@
 #     };
 
      character =  {
-       success_symbol = "[](bold green)";
+       success_symbol = " [󱞪](bold green)";
        error_symbol = "[](bold red)";
      };
 
@@ -75,15 +94,13 @@
        style = "bold italic blue";
      };
 
-#    golang =  {
-#      format = "[ $version](bold cyan)";
-#      detect_files = ["go.mod"];
-#      symbol = "";
-#    };
-
-    nix_shell =  {
-      format = "via [☃️ $state( \($name\))](bold blue) ";
+    golang =  {
+      symbol = " ";
     };
+     
+     nix_shell =  {
+       symbol = " ";
+     };
 
     };
 };
