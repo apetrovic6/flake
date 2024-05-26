@@ -10,6 +10,7 @@
       number = true;
       relativenumber = true;
       shiftwidth = 2;
+      termguicolors = true;
     };
 
     plugins = {
@@ -20,7 +21,33 @@
       luasnip.enable = true;
       which-key.enable = true;
       nvim-tree.enable = true;
+      nix.enable = true;
+      nix-develop.enable = true;
+      notify.enable = true;
+
+      harpoon = {
+        enable = true;
+        enableTelescope = true;
+
+        keymaps =  { # TODO: Add the rest of keymap
+          addFile = "<leader>ha";
+          cmdToggleQuickMenu = "<leader>hm";
+        };
+
+      };
     };
+
+   plugins.cmp = {
+     enable = true;
+     autoEnableSources = true;
+
+     settings.sources = [
+       { name = "nvim_lsp"; }
+       { name = "path"; }
+       { name = "buffer"; }
+     ];
+   }; 
+
 
     plugins.lsp = {
       enable = true;
@@ -37,6 +64,13 @@
           installRustc = false;
 	};
         
+	clangd.enable = true;
+
+	cmake.enable = true;
+
+	gopls.enable = true;
+
+	omnisharp.enable = true;
       };
 
 
@@ -46,38 +80,66 @@
       };
     };
 
-   plugins.cmp = {
-     enable = true;
-     autoEnableSources = true;
-
-     settings.sources = [
-       { name = "nvim_lsp"; }
-       { name = "path"; }
-       { name = "buffer"; }
-     ];
-
-   
-   }; 
 
  keymaps = [
     {
-      action = "<cmd>Telescope live_grep<CR>";
+      action = "<cmd>lua require('telescope.builtin').live_grep()<CR>";
       key = "<leader>fg";
+      options.desc = "Live Grep";
     }
 
     {
-      action = "<cmd>Telescope find_files<cr>";
+      action = "<cmd>lua require('telescope.builtin').find_files()<cr>";
       key = "<leader>ff";
+      options.desc = "Find files";
     }
 
     {
-      action = "<cmd>Telescope buffers<cr>";
+      action = "<cmd>lua require('telescope.builtin').buffers()<cr>";
       key = "<leader>fb";
+      options.desc = "Find Buffers";
     }
 
     {
-      action = "<cmd>Telescope help_tags<cr>";
+      action = "<cmd>lua require('telescope.builtin').help_tags()<cr>";
       key = "<leader>fh";
+      options.desc = "Find Help Tags";
+    }
+
+    {
+      action = "<cmd>NvimTreeToggle<cr>";
+      key = "<leader>ee";
+      options.desc = "Toggle Nvim Tree";
+    }
+    
+    {
+      action = "<cmd>NvimTreeFocus<cr>";
+      key = "<leader>ef";
+      options.desc = "Focus Nvim Tree";
+    }
+
+    {
+      action = "<cmd>NvimTreeFindFile<cr>";
+      key = "<leader>eff";
+      options.desc = "Find File";
+    }
+    
+    {
+      action = "<cmd>NvimTreeCollapse<cr>";
+      key = "<leader>ec";
+      options.desc = "Tree Collapse";
+    }
+    
+    {
+      action = "<cmd>split<cr>";
+      key = "<leader>wh";
+      options.desc = "Horizontal Split";
+    }
+
+    {
+      action = "<cmd>vs<cr>";
+      key = "<leader>wv";
+      options.desc = "Vertical Split";
     }
 
   ];
