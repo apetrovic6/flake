@@ -6,6 +6,7 @@
     gcc
 
     vim
+    nh
     brightnessctl
     alacritty
     wget

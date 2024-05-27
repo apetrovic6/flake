@@ -19,7 +19,6 @@
       oil.enable = true;
       treesitter.enable = true;
       luasnip.enable = true;
-      which-key.enable = true;
       nvim-tree.enable = true;
       nix.enable = true;
       nix-develop.enable = true;
@@ -34,6 +33,18 @@
           cmdToggleQuickMenu = "<leader>hm";
         };
 
+      };
+    };
+
+
+    plugins.which-key = {
+      enable = true;
+
+      registrations = {
+        "<leader>f" ="Find files";
+        "<leader>e" = "Explorer";
+        "<leader>w" = "Window";
+        "<leader>h" = "Harpoon";
       };
     };
 
@@ -146,8 +157,8 @@
 
   clipboard.providers.wl-copy.enable = true;
 
-    colorschemes.gruvbox.enable = true;
-#    colorschemes.nord.enable = true;
+#  colorschemes.gruvbox.enable = true;
+# colorschemes.nord.enable = true;
 
   };
 

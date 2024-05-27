@@ -20,7 +20,7 @@
       ../../base/fonts
       ../../base/users
       ../../base/desktop
-#      ../../base/stylix
+      ../../base/stylix
       ../../base/services
       ../../base/virtualization
       ./hardware.nix

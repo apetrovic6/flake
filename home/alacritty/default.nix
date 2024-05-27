@@ -6,13 +6,13 @@
     # custom settings
     settings = {
       env.TERM = "xterm-256color";
-      font = {
-        size = 13;
-	normal =  {
-          family = "FiraCodeNerdFont";
-	  style = "Retina";
-	};
-      };
+	#      font = {
+	#        size = 13;
+	# normal =  {
+	#          family = "FiraCodeNerdFont";
+	#   style = "Retina";
+	# };
+	#      };
 
      window = {
 	padding =  {
