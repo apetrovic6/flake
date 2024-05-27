@@ -23,6 +23,25 @@
       nix.enable = true;
       nix-develop.enable = true;
       notify.enable = true;
+#      qmk.enable = true;
+      indent-o-matic.enable = true;
+      indent-blankline = {
+        enable = true;
+
+        extraOptions = {
+          debounce = 500;
+          # indent.highlight = "|hl-IblIndent|";
+        };
+      };
+
+      toggleterm = {
+        enable = true;
+
+        settings =  {
+          direction = "float";
+          open_mapping = "[[<c-/>]]";
+        };
+      };
 
       harpoon = {
         enable = true;
@@ -45,6 +64,7 @@
         "<leader>e" = "Explorer";
         "<leader>w" = "Window";
         "<leader>h" = "Harpoon";
+        "<leader>t" = "Terminal";
       };
     };
 
@@ -74,9 +94,8 @@
 	  installCargo = false;
           installRustc = false;
 	};
-        
-	clangd.enable = true;
 
+	clangd.enable = true;
 	cmake.enable = true;
 
 	gopls.enable = true;
@@ -153,6 +172,11 @@
       options.desc = "Vertical Split";
     }
 
+    # {
+    #   action = "<cmd>ToggleTerm<cr>";
+    #   key = "<C-/>";
+    #   options.desc = "Toggle Terminal";
+    # }
   ];
 
   clipboard.providers.wl-copy.enable = true;

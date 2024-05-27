@@ -1,11 +1,28 @@
 { config, pkgs, ...}:
 
 {
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
+# stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
 
-  stylix.image = pkgs.fetchurl {
-    url = "https://www.pixelstalk.net/wp-content/uploads/2016/05/Epic-Anime-Awesome-Wallpapers.jpg";
-    sha256 = "enQo3wqhgf0FEPHj2coOCvo7DuZv+x5rL/WIo4qPI50=";
+  stylix.image = /home/apetrovic/Pictures/Wallpapers/38.jpg;
+
+  stylix.polarity = "dark";
+
+  stylix.fonts.sizes =  {
+    applications = 13;
+    terminal = 15;
+    desktop = 14;
+    popups = 10;
   };
+
+  stylix.opacity =  {
+    applications = 1.0;
+    terminal = 0.8;
+    desktop = 1.0;
+    popups = 1.0;
+  };
+
+
+
+  stylix.targets.plymouth.enable = true;
 
 }
