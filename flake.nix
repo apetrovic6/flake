@@ -111,7 +111,7 @@
 
             hyprland.nixosModules.default
             nixos-cosmic.nixosModules.default
- #           stylix.nixosModules.stylix
+            stylix.nixosModules.stylix
 
 	    ./hosts/laptop/configuration.nix
 

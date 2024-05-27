@@ -24,7 +24,7 @@
       ../../base/users
       ../../base/services
       ../../base/desktop
-#      ../../base/stylix
+      ../../base/stylix
       ../../base/virtualization
       ../../base/virtualization/intel
       ../../base/virtualization/pci-passthrough
