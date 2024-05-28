@@ -1,6 +1,9 @@
 { config, pkgs, inputs, ... }:
 
 {
+  imports = [ ./dashboard.nix ];
+
+
   programs.nixvim = {
     enable = true;
 
@@ -11,6 +14,7 @@
       relativenumber = true;
       shiftwidth = 2;
       termguicolors = true;
+      fillchars = "eob:\ ,fold:\ ,vert:\│";
     };
 
     plugins = {
@@ -29,7 +33,7 @@
         enable = true;
 
         extraOptions = {
-          debounce = 500;
+          debounce = 5;
           # indent.highlight = "|hl-IblIndent|";
         };
       };
@@ -55,7 +59,7 @@
       };
     };
 
-
+  
     plugins.which-key = {
       enable = true;
 

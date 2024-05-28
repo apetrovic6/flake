@@ -14,15 +14,16 @@
     
     settings = {
 
-    monitor="DP-3,3840x2160@120,0x0,1";
+     monitor="DP-3,3840x2160@120,0x0,1";
+    # monitor=",preferred,auto,1";
 
     env = [
             "LIBVA_DRIVER_NAME,nvidia"
             "XDG_SESSION_TYPE,wayland"
-     	      "GBM_BACKEND,nvidia-drm"
-  	        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+     	    "GBM_BACKEND,nvidia-drm"
+  	    "__GLX_VENDOR_LIBRARY_NAME,nvidia"
             "WLR_DRM_DEVICES,/dev/dri/card1"
-
+            "QT_QPA_PLATFORMTHEME,qt6ct"
 	];
 
     "exec-once" = [
@@ -54,10 +55,13 @@
       gaps_in = 10;
       gaps_out = 25;
       border_size = 2;
-#      "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-#      "col.inactive_border" = "rgba(595959aa)";
 
-      layout = "dwindle";
+      # Controled by stylix
+#     "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+#     "col.inactive_border" = "rgba(595959aa)";
+
+      # master or dwindle
+      layout = "master";
 
     # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
       allow_tearing = false;
@@ -139,6 +143,12 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizeActive"
 
+        # Brightness
+        ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
+        ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
+
+        # Volume control
+        # ",XF86AudioLowerVolume, exec, "
 
         ", Print, exec, grimblast copy area"
 
