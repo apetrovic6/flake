@@ -22,6 +22,8 @@
     xfce.thunar
     bluetuith
     lm_sensors
+    killall
+    wallust
 
     plex-media-player
     plexamp

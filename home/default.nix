@@ -41,12 +41,6 @@
     package = pkgs.vscode.fhs;
   };
 
- # set cursor size and dpi for 4k monitor
-#  xresources.properties = {
-#    "Xcursor.size" = 16;
-#"Xft.dpi" = 172;
-#  };
-
 
   xdg = {
    enable = true;
@@ -55,7 +49,6 @@
 #      createDirectories = true;
 #    };
   };
-
 
   home.sessionVariables = {
     STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";

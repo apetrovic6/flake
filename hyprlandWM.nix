@@ -15,6 +15,8 @@
 
   environment.systemPackages = with pkgs; [
 #    fuzzel
+feh
+tofi
     rofi-wayland
     xdg-desktop-portal-hyprland
    polkit_gnome
