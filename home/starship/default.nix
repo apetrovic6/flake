@@ -24,7 +24,7 @@
     "$git_metrics"
     "$git_status"
 
-    "$fill"
+#    "$fill"
 
     "$golang"
     "$kotlin"
