@@ -45,6 +45,16 @@
   in {
      nixosConfigurations =  {
    
+       # homeConfigurations.${userSettings.username} = home-manager.lib.homeManagerConfiguration  {
+       #   inherit pkgs;
+       #   home-manager.extraSpecialArgs =  {
+       #     inherit userSettings;
+       #                inherit systemSettings;
+       #                inherit inputs;
+       #   };
+       #
+       #   modules = [ ./home ];
+       # };
 
        citadel = lib.nixosSystem  {
               inherit system;
