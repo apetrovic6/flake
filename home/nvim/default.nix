@@ -27,7 +27,10 @@
       lualine.enable = true;
       telescope.enable = true;
       oil.enable = true;
+      gitgutter.enable = true;
       treesitter.enable = true;
+      multicursors.enable = true;
+      fzf-lua.enable = true;
       luasnip.enable = true;
       nvim-tree.enable = true;
       nix.enable = true;
@@ -86,6 +89,7 @@
        { name = "nvim_lsp"; }
        { name = "path"; }
        { name = "buffer"; }
+       { name = "cmdline"; }
      ];
    }; 
 
