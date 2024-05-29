@@ -1,11 +1,11 @@
-{ config, pkgs, ... };
+{ config, pkgs, ... }:
 
 {
   programs.nixvim =  {
     plugins.nvim-tree.enable = true;
   };
 
-  keymaps = [
+  programs.nixvim.keymaps = [
     {
       action = "<cmd>NvimTreeToggle<cr>";
       key = "<leader>ee";

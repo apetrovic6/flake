@@ -4,11 +4,11 @@
   programs.nixvim = {
     plugins = {
       telescope.enable = true;
-    }
+    };
   };
 
 
-  keymaps = [
+  programs.nixvim.keymaps = [
      {
       action = "<cmd>lua require('telescope.builtin').live_grep()<CR>";
       key = "<leader>fg";

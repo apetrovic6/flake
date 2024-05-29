@@ -11,6 +11,7 @@
     ./plugins/nvim-tree.nix
     ./plugins/cmp.nix
     ./plugins/trouble.nix
+    ./plugins/noice.nix
   ];
 
 
@@ -59,7 +60,36 @@
 
  keymaps = [
    
-        
+    {
+      action = "<cmd>wincmd j<cr>";
+      key = "<c-e>";
+      options.desc = "Focus Down Split";
+    }
+
+    {
+      action = "<cmd>wincmd k<cr>";
+      key = "<c-i>";
+      options.desc = "Focus Up Split";
+    }
+   
+    {
+      action = "<cmd>wincmd l<cr>";
+      key = "<c-o>";
+      options.desc = "Focus Right Split";
+    }
+
+   {
+      action = "<cmd>wincmd h<cr>";
+      key = "<c-n>";
+      options.desc = "Focus Left Split";
+    }
+
+    {
+      action = "<cmd>only<cr>";
+      key = "<leader>wo";
+      options.desc = "Close all other windows";
+    }
+
     {
       action = "<cmd>split<cr>";
       key = "<leader>wh";
