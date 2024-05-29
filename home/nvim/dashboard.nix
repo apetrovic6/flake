@@ -11,6 +11,7 @@
 parts = [
   "header"
   "body"
+  "footer"
 ];
 
 
@@ -32,35 +33,44 @@ body = {
  align = "center";
     foldSection = false;
     highlight = "String";
-    margin = 5;
+    #margin = 5;
     oldfilesAmount = 0;
     title = "Srbija do Tokija";
     type = "mapping";
    content = [
       [
-        " Find File"
+        " Find File "
         "Telescope find_files"
-        "<leader>ff"
+        "f"
       ]
 
       [
         "󰍉 Find Word"
         "Telescope live_grep"
-        "<leader>lg"
+        "w"
       ]
-[
+
+      [
         " File Browser"
         "Telescope file_browser"
-        "<leader>ee"
+        "e"
       ]
-       [
-        " Colorschemes"
+
+      [
+        " Colorschemes "
         "Telescope colorscheme"
-        "<leader>cs"
+        "cs"
       ]
+      
+      [
+        " Quit"
+        "q"
+        "q"
+      ]
+
     ];
 
-    };
+   };
  header = {
     align = "center";
     defaultColor = "";
@@ -78,7 +88,19 @@ body = {
          "╚██████╔╝╚██████╔╝██║  ██║███████╗██║  ██║     ╚████╔╝ ██║██║ ╚═╝ ██║"
          " ╚═════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝      ╚═══╝  ╚═╝╚═╝     ╚═╝"
 
-    ]; 
+  ]; 
+  };
+
+  footer = {
+    align = "center";
+    defaultColor = "";
+    foldSection = false;
+    highlight = "Statement";
+    margin = 50;
+    oldfilesAmount = 0;
+    type = "text";
+    content = ["Ooga Booga"];
+   
   };
 
      };

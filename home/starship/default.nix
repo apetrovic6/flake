@@ -90,6 +90,15 @@
        style = "bold italic blue";
      };
 
+      directory.substitutions = {
+        "~" = "󰋞 ";
+        "Documents" = "  ";
+        "Downloads" = "  ";
+        "Music" = "  ";
+        "Pictures" = "  ";
+      };
+
+
     golang =  {
       symbol = " ";
     };

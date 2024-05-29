@@ -15,6 +15,12 @@
       shiftwidth = 2;
       termguicolors = true;
       fillchars = "eob:\ ,fold:\ ,vert:\│";
+      autoindent = true;
+      expandtab = true;
+      smartcase = true;
+      smartindent = true;
+      wrap = false;
+      swapfile = false;
     };
 
     plugins = {
