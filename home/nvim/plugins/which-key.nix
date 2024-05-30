@@ -10,6 +10,8 @@
         "<leader>w" = "Window";
         "<leader>h" = "Harpoon";
         "<leader>t" = "Trouble";
+        "<leader>c" = "Comment";
+        "<leader>g" = "Git";
         "<c-/>" = "Terminal";
       };
   };

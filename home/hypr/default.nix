@@ -61,7 +61,7 @@
 #     "col.inactive_border" = "rgba(595959aa)";
 
       # master or dwindle
-      layout = "master";
+      layout = "dwindle";
 
     # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
       allow_tearing = false;

@@ -14,10 +14,6 @@ parts = [
 ];
 
 
-     userMappings =  {
-       "<leader>ff" = "<cmd>Telescope find_files<CR>";
-     };
-
      mappings =  {
   executeCommand = "<CR>";
   openFile = "o";
@@ -37,6 +33,11 @@ body = {
     title = "Srbija do Tokija";
     type = "mapping";
    content = [
+     [
+       " New File"
+       "enew"
+       "n"
+     ]
       [
         " Find File "
         "Telescope find_files"

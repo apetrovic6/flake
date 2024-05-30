@@ -13,12 +13,14 @@
     ./plugins/trouble.nix
     ./plugins/noice.nix
     ./plugins/todo-comments.nix
+    ./plugins/lazygit.nix
+    ./plugins/lint.nix
   ];
 
 
   programs.nixvim = {
     enable = true;
-
+# FIX: Test fix
     globals.mapleader = " ";
 
     opts = {
@@ -58,7 +60,7 @@
       };
     };
 
-
+# BUG: Test Bug
  keymaps = [
    
     {
@@ -102,8 +104,6 @@
       key = "<leader>wv";
       options.desc = "Vertical Split";
     }
-
-    
   ];
 
   clipboard.providers.wl-copy.enable = true;
