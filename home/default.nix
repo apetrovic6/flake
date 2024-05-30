@@ -9,6 +9,7 @@
      ./starship
      ./alacritty
      ./shell-config.nix
+     ./waybar
    ];
 
     home.username = userSettings.username;
