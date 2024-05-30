@@ -1,37 +1,23 @@
 { config, pkgs, ...}:
 
 {
+  imports = [
+    ./modules/workspaces.nix
+  ];
+
  programs.waybar = {
 	enable = true;
 	package = pkgs.waybar;
 	settings = {
+
         mainBar = {
             height = 20;
             layer = "top";
-            modules-left = ["custom/launcher" "cpu" "memory" "custom/weather" "hyprland/workspaces"];
-            modules-center = ["mpris"];
+            modules-left = ["custom/launcher" "cpu" "memory" "custom/weather" "mpris"];
+            modules-center = ["hyprland/workspaces"];
             modules-right = ["network" "pulseaudio" "backlight" "battery" "clock" "tray" "hyprland/language" "custom/wallpaper" "custom/power-menu"];
 
-          "hyprland/workspaces" = {
-            format = "{name}";
-            all-outputs = true;
-            on-click = "activate";
-            format-icons = {
-              active = " 󱎴";
-              default = "󰍹";
-            };
-            persistent-workspaces = {
-              "1" = [];
-              "2" = [];
-              "3" = [];
-              "4" = [];
-              "5" = [];
-              "6" = [];
-              "7" = [];
-              "8" = [];
-              "9" = [];
-            };
-          };
+          
           "hyprland/language" = {
             format = "{short}";
           };
