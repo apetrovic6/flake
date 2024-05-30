@@ -15,12 +15,13 @@
     ./plugins/todo-comments.nix
     ./plugins/lazygit.nix
     ./plugins/lint.nix
+    ./plugins/spectre.nix
+    ./plugins/bufferline.nix
   ];
 
 
   programs.nixvim = {
     enable = true;
-# FIX: Test fix
     globals.mapleader = " ";
 
     opts = {
@@ -53,14 +54,34 @@
       indent-blankline = {
         enable = true;
 
-        extraOptions = {
-          debounce = 5;
-          # indent.highlight = "|hl-IblIndent|";
+        settings =  {
+          debounce = 1000;
+          scope = {
+            enabled = true;
+            show_start = false;
+            injected_languages = true;
+          };
         };
       };
     };
 
-# BUG: Test Bug
+    plugins.nvim-colorizer.enable = true;
+
+    plugins.leap = {
+      enable = true;
+    };
+
+    plugins.barbecue = {
+      enable = true;
+    };
+
+
+    plugins.dressing = {
+      enable = true;
+
+
+    };
+
  keymaps = [
    
     {

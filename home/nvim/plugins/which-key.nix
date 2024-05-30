@@ -12,7 +12,7 @@
         "<leader>t" = "Trouble";
         "<leader>c" = "Comment";
         "<leader>g" = "Git";
-        "<c-/>" = "Terminal";
+        "<leader>fs" = "Search / Replace";
       };
   };
 }
