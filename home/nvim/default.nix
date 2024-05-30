@@ -12,6 +12,7 @@
     ./plugins/cmp.nix
     ./plugins/trouble.nix
     ./plugins/noice.nix
+    ./plugins/todo-comments.nix
   ];
 
 

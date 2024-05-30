@@ -5,7 +5,6 @@
      startup = {
        enable = true;
 
-#       theme = "dashboard";
 
 
 parts = [
