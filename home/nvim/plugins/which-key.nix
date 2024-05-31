@@ -12,6 +12,7 @@
         "<leader>t" = "Trouble";
         "<leader>c" = "Comment";
         "<leader>g" = "Git";
+        "<leader>b" = "Buffers";
         "<leader>fs" = "Search / Replace";
       };
   };

@@ -1,7 +1,9 @@
 { config, lib, pkgs, ... }:
 
 {
+  hardware.nvidia.powerManagement.finegrained = true;
   hardware.nvidia.prime = {
+
     offload = {
       enable = true;
       enableOffloadCmd = true;
