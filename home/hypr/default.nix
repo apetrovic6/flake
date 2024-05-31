@@ -86,7 +86,7 @@
     "windowrulev2" = [
       # Picture-in-a-Picture (PIP) rules: Oddly, some need re-duplication.  This is because the window for
       # PIP changes after on first launch, and will not inherant the rules...
-      "opacity 0.95 0.75,title:^(Picture in picture)$"  # for opacity: [focus num] [bg num]
+      #"opacity 0.95 0.75,title:^(Picture in picture)$"  # for opacity: [focus num] [bg num]
       
       # Interestingly, the opacity rule above doesn't need the reduplication?
       "pin,title:^(Picture in picture)$"
