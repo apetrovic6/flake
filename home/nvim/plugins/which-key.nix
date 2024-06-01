@@ -14,6 +14,13 @@
         "<leader>g" = "Git";
         "<leader>b" = "Buffers";
         "<leader>fs" = "Search / Replace";
+
+        "<C-Space>" = "Complete Completion";
+        "<C-d>" = "Scroll Docs Down";
+        "<C-f>" = "Scroll Docs Up";
+        "<C-e>" = "Close Completion Window";
+        "<S-Tab>" = "Select Previous Completion Item";
+        "<Tab>" = "Select Next Completion Item";
       };
   };
 }
