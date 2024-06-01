@@ -115,7 +115,7 @@
           };
 
           "custom/weather" = {
-            exec = "nix-shell ~/.config/waybar/scripts/weather.py";
+#            exec = "nix-shell ~/.config/waybar/scripts/weather.py";
             restart-interval = 300;
             return-type = "json";
           };
@@ -134,7 +134,7 @@
           };
 
           "custom/spotify" = {
-            exec = "nix-shell ~/.config/waybar/scripts/mediaplayer.py --player youtube-music";
+#            exec = "nix-shell ~/.config/waybar/scripts/mediaplayer.py --player youtube-music";
             format = " {}";
             return-type = "json";
             on-click = "playerctl play-pause";
@@ -144,7 +144,7 @@
 
           "custom/power-menu" = {
             format = "{percentage}Hz";
-            on-click = "~/.config/hypr/scripts/screenHz.sh";
+ #           on-click = "~/.config/hypr/scripts/screenHz.sh";
             return-type = "json";
             exec = "cat ~/.config/hypr/scripts/hz.json";
             interval = 1;
@@ -158,7 +158,7 @@
 
           "custom/wallpaper" = {
             format = "󰸉";
-            on-click = "bash ~/.config/waybar/scripts/changewallpaper.sh";
+#            on-click = "bash ~/.config/waybar/scripts/changewallpaper.sh";
           };
           };
           };
