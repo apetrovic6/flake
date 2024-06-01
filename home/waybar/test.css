@@ -1,0 +1,25 @@
+* {
+  font-family: Material Design Icons, JetBrainsMono Nerd Font, Iosevka Nerd Font ;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+            transition-property: background-color;
+            transition-duration: 0.5s;
+}
+
+#workspaces {
+            border-radius: 6px;
+            padding: 2px 10px;
+            border-radius: 8px;
+            font-size: 16px;
+
+            margin-left: 4px;
+            margin-right: 4px;
+
+            margin-top: 8.5px;
+            margin-bottom: 8.5px;
+}

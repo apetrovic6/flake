@@ -3,13 +3,14 @@
 {
   programs.waybar.settings.mainBar = {
         "hyprland/workspaces" = {
-            format = "{icon} {windows}";
+#            format = "{icon} {windows}";
+            format = "{icon}";
             all-outputs = true;
             on-click = "activate";
             format-icons = {
-              active = " 󰮯";
-              default = " 󰊠";
-	      persistent = " 󰊠";
+              active = "󰮯";
+              default = "󰊠";
+	      persistent = "󰊠";
             };
             persistent-workspaces = {
               "1" = [];
@@ -38,5 +39,16 @@
                 "title<.*Discord.*" = " ";
 	    };
         };
+
+         "hyprland/language" = {
+            format = "{short}";
+          };
+
+          "hyprland/window" = {
+            max-length = 200;
+            separate-outputs = true;
+          };
+
+
   };
 }

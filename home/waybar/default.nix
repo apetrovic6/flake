@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./modules/workspaces.nix
+    ./modules/hypr-modules.nix
   ];
 
  programs.waybar = {
@@ -13,19 +13,12 @@
         mainBar = {
             height = 20;
             layer = "top";
-            modules-left = ["custom/launcher" "cpu" "memory" "custom/weather" "mpris"];
+            modules-left = ["cpu" "memory" "custom/weather" "mpris"];
             modules-center = ["hyprland/workspaces"];
-            modules-right = ["network" "pulseaudio" "backlight" "battery" "clock" "tray" "hyprland/language" "custom/wallpaper" "custom/power-menu"];
+           # modules-right = ["network" "pulseaudio" "backlight" "battery" "clock" "tray" "hyprland/language" "custom/wallpaper" "custom/power-menu"];
+            modules-right = ["network" "pulseaudio" "bluetooth" "clock" "tray" "hyprland/language" "custom/launcher" ];
 
           
-          "hyprland/language" = {
-            format = "{short}";
-          };
-
-          "hyprland/window" = {
-            max-length = 200;
-            separate-outputs = true;
-          };
           "tray" = {
             spacing = 10;
           };
@@ -66,12 +59,13 @@
           "network" = {
             format-wifi = "<small>{bandwidthDownBytes}</small> {icon}";
             min-length = 10;
-            fixed-width = 10;
-            format-ethernet = "󰈀";
+#            fixed-width = 10;
+            max-length = 10;
+            format-ethernet = "󰈀 <small>{bandwidthDownBytes}</small>" ;
             format-disconnected = "󰤭";
             tooltip-format = "{essid}";
             interval = 1;
-            on-click = "~/.config/waybar/scripts/network/rofi-network-manager.sh";
+#            on-click = "~/.config/waybar/scripts/network/rofi-network-manager.sh";
             format-icons = ["󰤯" "󰤟" "󰤢" "󰤥" "󰤨"];
           };
 
@@ -168,376 +162,92 @@
           };
           };
           };
-        style = '' 
-                  * {
-            /* `otf-font-awesome` is required to be installed for icons */
-            font-family: Material Design Icons, JetBrainsMono Nerd Font, Iosevka Nerd Font ;
-            font-size: 14px;
-            border: none;
-            border-radius: 0;
-            min-height: 0;
-          }
 
-          window#waybar {
-            background-color: rgba(26, 27, 38, 0.5);
-            color: #ffffff;
-            transition-property: background-color;
-            transition-duration: 0.5s;
-          }
+          style = ''
+      * {
+  font-family: Material Design Icons, JetBrainsMono Nerd Font, Iosevka Nerd Font ;
+  font-size: 14px;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
 
-          window#waybar.hidden {
-            opacity: 0.1;
-          }
-
-          #window {
-            color: #64727d;
-          }
-
-          #clock,
-          #temperature,
-          #mpris, 
-          #cpu,
-          #memory,
-          #custom-media,
-          #tray,
-          #mode,
-          #custom-lock,
-          #workspaces,
-          #idle_inhibitor,
-          #custom-launcher,
-          #custom-spotify,
-          #custom-weather,
-          #custom-weather.severe,
-          #custom-weather.sunnyDay,
-          #custom-weather.clearNight,
-          #custom-weather.cloudyFoggyDay,
-          #custom-weather.cloudyFoggyNight,
-          #custom-weather.rainyDay,
-          #custom-weather.rainyNight,
-          #custom-weather.showyIcyDay,
-          #custom-weather.snowyIcyNight,
-          #custom-weather.default {
-            color: #e5e5e5;
-            border-radius: 6px;
-            padding: 2px 10px;
-            background-color: #252733;
-            border-radius: 8px;
-            font-size: 16px;
-
-            margin-left: 4px;
-            margin-right: 4px;
-
-            margin-top: 8.5px;
-            margin-bottom: 8.5px;
-          }
-          #temperature{
-            color: #7a95c9;
-          }
-          #cpu {
-            color: #fb958b;
-          }
-
-          #memory {
-            color: #a1c999;
-          }
-
-          #workspaces button {
-            color: #7a95c9;
-            box-shadow: inset 0 -3px transparent;
-
-            padding-right: 3px;
-            padding-left: 4px;
-
-            margin-left: 0.1em;
-            margin-right: 0em;
-            transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
-          }
-
-          #workspaces button.active {
-            color: #ecd3a0;
-            padding-left: 1px;
-            padding-right: 5px;
-            font-family: Iosevka Nerd Font;
-            font-weight: bold;
-            font-size: 12px;
-            margin-left: 0em;
-            margin-right: 0em;
-            transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.68);
-          }
-
-          /* If workspaces is the leftmost module, omit left margin */
-          .modules-left > widget:first-child > #workspaces {
-            margin-left: 0;
-          }
-
-          /* If workspaces is the rightmost module, omit right margin */
-          .modules-right > widget:last-child > #workspaces {
-            margin-right: 0;
-          }
-
-          #custom-launcher {
-            margin-left: 12px;
-
-            padding-right: 18px;
-            padding-left: 14px;
-
-            font-size: 22px;
-
-            color: #7a95c9;
-
-            margin-top: 8.5px;
-            margin-bottom: 8.5px;
-          }
-          #bluetooth,
-          #backlight,
-          #battery,
-          #pulseaudio,
-          #network {
-            background-color: #252733;
-            padding: 0em 2em;
-
-            font-size: 14px;
-
-            padding-left: 7.5px;
-            padding-right: 7.5px;
-
-            padding-top: 3px;
-            padding-bottom: 3px;
-
-            margin-top: 7px;
-            margin-bottom: 7px;
-            
-            font-size: 20px;
-          }
-
-          #pulseaudio {
-            color: #81A1C1;
-            padding-left: 9px;
-            font-size: 22px;
-          }
-
-          #pulseaudio.muted {
-            color: #fb958b;
-            padding-left: 9px;
-            font-size: 22px;
-          }
-
-          #backlight {
-            color: #ecd3a0;
-            padding-right: 5px;
-            padding-left: 8px;
-            font-size: 21.2px;
-          }
-
-          #network {
-            padding-left: 0.2em;
-            color: #5E81AC;
-            border-radius: 8px 0px 0px 8px;
-            padding-left: 14px;
-            padding-right: 14px;
-            font-size: 20px;
-          }
-
-          #network.disconnected {
-            color: #fb958b;
-          }
-
-          #bluetooth {
-            padding-left: 0.2em;
-            color: #5E81AC;
-            border-radius: 8px 0px 0px 8px;
-            padding-left: 14px;
-            padding-right: 14px;
-            font-size: 20px;
-          }
-
-          #bluetooth.disconnected {
-            color: #fb958b;
-          }
+window#waybar {
+  margin-top: 5px;
+}
 
 
-          #battery {
-            color: #8fbcbb;
-            border-radius: 0px 8px 8px 0px;
-            padding-right: 12px;
-            padding-left: 12px;
-            font-size: 22px;
-          }
+#custom-launcher {  
+  margin-right: 8px;
+}
 
-          #battery.critical,
-          #battery.warning,
-          #battery.full,
-          #battery.plugged {
-            color: #8fbcbb;
-            padding-left: 12px;
-            padding-right: 12px;
-            font-size: 22px;
-          }
+#clock,
+#battery,
+#cpu,
+#memory,
+#network, 
+#disk,
+#temperature,
+#backlight,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd,
+#clock,
+#bluetooth,
+#window,
+#language,
+#tray,
+#power {
+    border-radius: 5px;
+    margin: 5px 20px 5px 0px;
+    padding: 0px 10px;
+    min-width: 50px;
+}
 
-          #battery.charging { 
-            font-size: 18px;
-            padding-right: 12px;
-            padding-left: 12px;
-          }
+#workspaces {
+  margin-top: 5px;
+  margin-left: 5px;
+ background: rgba(0,0,0,0);
+}
 
-          #battery.full,
-          #battery.plugged {
-            font-size: 22.5px;
-            padding-right: 12px;
-          }
+#bluetooth  {
+ background: @base0C;
+}
 
-          @keyframes blink {
-            to {
-              background-color: rgba(30, 34, 42, 0.5);
-              color: #abb2bf;
-            }
-          }
+#workspaces button {
+  margin-top: 5px;
+  margin-left: 5px;
+  border-radius: 8px;
+}
+#cpu{
+    margin-left: 20px;
+}
 
-          #battery.warning {
-            color: #ecd3a0;
-          }
+#custom-launcher{
+    margin-right: 25px;
+}
 
-          #battery.critical:not(.charging) {
-            color: #fb958b;
-          }
+#custom-launcher {
+  font-size: 23px;
+  background: @base01;
+  border-radius: 5px;
+  min-width: 40px; 
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 
-          #custom-lock {
-            color: #ecd3a0;
-            padding: 0 15px 0 15px;
-            margin-left: 7px;
-            margin-top: 7px;
-            margin-bottom: 7px;
-          }
-          #clock {
-            color: #8a909e;
-            font-family: Iosevka Nerd Font;
-            font-weight: bold;
-            margin-top: 7px;
-            margin-bottom: 7px;
-          }
-          #language {
-            color: #8a909e;
-            font-family: Iosevka Nerd Font;
-            font-weight: bold;
-            border-radius : 8px 0 0 8px;
-            margin-top: 7px;
-            margin-bottom: 7px;
-          }
+window#waybar.hidded {
+    opacity: 0.0;
+}
 
-          #custom-power-menu {
-            color: #8a909e;
-            margin-right: 12px;
-            border-radius: 8px;
-            padding: 0 6px 0 6.8px;
-            border-radius: 0 8px 8px 0;
-            margin-top: 7px;
-            margin-bottom: 7px;
-          }
-          #custom-wallpaper {
-            color: #8a909e;
-            padding-right: 7;
-            padding-left: 7;
-          }
-          #custom-wallpaper,
-          #language,
-          #custom-power-menu {
-            background-color: #252733;
-            padding: 0em 2em;
 
-            font-size: 17px;
+          '';
 
-            padding-left: 7.5px;
-            padding-right: 7.5px;
-
-            padding-top: 3px;
-            padding-bottom: 3px;
-
-            margin-top: 7px;
-            margin-bottom: 7px;
-          }
-
-          tooltip {
-            font-family: Iosevka Nerd Font;
-            border-radius: 15px;
-            padding: 15px;
-            background-color: #1f232b;
-          }
-
-          tooltip label {
-            font-family: Iosevka Nerd Font;
-            padding: 5px;
-          }
-
-          label:focus {
-            background-color: #1f232b;
-          }
-
-          #tray {
-            margin-right: 8px;
-            margin-top: 7px;
-            margin-bottom: 7px;
-            font-size: 30px;
-
-          }
-
-          #tray > .passive {
-            -gtk-icon-effect: dim;
-          }
-
-          #tray > .needs-attention {
-            -gtk-icon-effect: highlight;
-            background-color: #eb4d4b;
-          }
-
-          #idle_inhibitor {
-            background-color: #242933;
-          }
-
-          #idle_inhibitor.activated {
-            background-color: #ecf0f1;
-            color: #2d3436;
-          }
-          #mpris,
-          #custom-spotify {
-            color: #abb2bf;
-          }
-
-          #custom-weather {
-            font-family: Iosevka Nerd Font;
-            font-size: 19px;
-            color: #8a909e;
-          }
-
-          #custom-weather.severe {
-            color: #eb937d;
-          }
-
-          #custom-weather.sunnyDay {
-            color: #c2ca76;
-          }
-
-          #custom-weather.clearNight {
-            color: #cad3f5;
-          }
-
-          #custom-weather.cloudyFoggyDay,
-          #custom-weather.cloudyFoggyNight {
-            color: #c2ddda;
-          }
-
-          #custom-weather.rainyDay,
-          #custom-weather.rainyNight {
-            color: #5aaca5;
-          }
-
-          #custom-weather.showyIcyDay,
-          #custom-weather.snowyIcyNight {
-            color: #d6e7e5;
-          }
-
-          #custom-weather.default {
-            color: #dbd9d8;
-          }
-    '';
   };
 }
