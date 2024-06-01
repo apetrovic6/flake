@@ -143,6 +143,9 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizeActive"
 
+        "$mod SHIFT, C, exec, brave --app=\"https://chat.openai.com\""
+        
+
         # Brightness
         ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
         ",XF86MonBrightnessDown, exec, brightnessctl set 10%-"
@@ -155,6 +158,11 @@
 	# Screenshot 
         "$mod SHIFT, S,exec, grim -g \"$(slurp)\" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png" # screenshot of a region 
         "$mod SHIFT CTRL, S, exec, grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png" # screenshot of the whole screen
+
+        # Toggle Waybar
+        "$mod SHIFT, B, exec, pkill -SIGUSR1 waybar"
+
+        "$mod, V, togglefloating"
       ]
       ++ (
         # workspaces
