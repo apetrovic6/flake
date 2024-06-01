@@ -23,6 +23,7 @@
     bluetuith
     lm_sensors
     killall
+    obsidian
     wallust
 
     plex-media-player
