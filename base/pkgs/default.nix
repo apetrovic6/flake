@@ -10,6 +10,7 @@
     brightnessctl
     alacritty
     wget
+    zathura
     git
     fastfetch
     firefox
