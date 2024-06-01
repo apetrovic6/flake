@@ -39,6 +39,8 @@
     };
 
     plugins = {
+      lsp-format.enable = true;
+      rest.enable = true;
       lualine.enable = true;
       oil.enable = true;
       gitgutter.enable = true;
