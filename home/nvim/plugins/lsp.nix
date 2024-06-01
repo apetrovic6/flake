@@ -10,6 +10,8 @@
           settings.telemetry.enable = false;
 	};
 
+        cssls.enable = true;
+        
         rust-analyzer = {
 	  enable = true;
 	  installCargo = false;
