@@ -5,11 +5,6 @@
 
   zramSwap.enable = true;
 
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 1w";
-  };
-
+  nix.gc.automatic = true;
   nix.settings.auto-optimise-store = true;
 }
