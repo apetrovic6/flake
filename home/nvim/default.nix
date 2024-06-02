@@ -17,6 +17,8 @@
     ./plugins/lint.nix
     ./plugins/spectre.nix
     ./plugins/bufferline.nix
+    ./plugins/cmp.nix
+    ./plugins/dap.nix
   ];
 
 
@@ -40,11 +42,9 @@
 
     plugins = {
       lsp-format.enable = true;
-      rest.enable = true;
       lualine.enable = true;
       oil.enable = true;
       gitgutter.enable = true;
-      treesitter.enable = true;
       multicursors.enable = true;
       fzf-lua.enable = true;
       luasnip.enable = true;
@@ -82,6 +82,13 @@
       enable = true;
 
 
+    };
+
+   
+    plugins.treesitter = {
+      enable = true;
+      nixvimInjections = true;
+      indent = true;
     };
 
  keymaps = [

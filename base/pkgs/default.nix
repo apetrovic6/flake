@@ -25,6 +25,7 @@
     lm_sensors
     killall
     obsidian
+    insomnia
     wallust
 
     plex-media-player

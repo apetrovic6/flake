@@ -14,6 +14,7 @@
         "<leader>g" = "Git";
         "<leader>b" = "Buffers";
         "<leader>fs" = "Search / Replace";
+        "<leader>d" = "Debug";
 
         "<C-Space>" = "Complete Completion";
         "<C-d>" = "Scroll Docs Down";
