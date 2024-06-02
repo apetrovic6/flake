@@ -19,6 +19,8 @@
     ./plugins/bufferline.nix
     ./plugins/cmp.nix
     ./plugins/dap.nix
+    ./plugins/lspsaga.nix
+    ./plugins/none-ls.nix
   ];
 
 

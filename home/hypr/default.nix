@@ -1,113 +1,93 @@
 { config, inputs, pkgs, ... }:
 
 {
-  imports = [
-    ./animations.nix
-    ./decorations.nix
-  ];
+  imports = [ ./animations.nix ./decorations.nix ];
 
-
-   wayland.windowManager.hyprland = {
+  wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     systemd.enable = true;
-    
+
     settings = {
 
-     monitor="DP-3,3840x2160@120,0x0,1";
-    # monitor=",preferred,auto,1";
+      monitor = "DP-3,3840x2160@120,0x0,1";
+      #     monitor="eDP-1,2560x1600@240,0x0,1";
 
-    env = [
-            "LIBVA_DRIVER_NAME,nvidia"
-            "XDG_SESSION_TYPE,wayland"
-     	    "GBM_BACKEND,nvidia-drm"
-  	    "__GLX_VENDOR_LIBRARY_NAME,nvidia"
-            "WLR_DRM_DEVICES,/dev/dri/card1"
-            "QT_QPA_PLATFORMTHEME,qt6ct"
-	];
+      env = [
+        "LIBVA_DRIVER_NAME,nvidia"
+        "XDG_SESSION_TYPE,wayland"
+        "GBM_BACKEND,nvidia-drm"
+        "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+        "WLR_DRM_DEVICES,/dev/dri/card1"
+        "QT_QPA_PLATFORMTHEME,qt6ct"
+      ];
 
-    "exec-once" = [
-             "waybar &"
-             "swww-daemon &"
-             ];
+      "exec-once" = [ "waybar &" "swww-daemon &" ];
 
-    # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
-    input = {
-      kb_layout = "us";
-    #  kb_variant =
-    #  kb_model =
-    #  kb_options =
-    #  kb_rules =
+      # For all categories, see https://wiki.hyprland.org/Configuring/Variables/
+      input = {
+        kb_layout = "us";
+        #  kb_variant =
+        #  kb_model =
+        #  kb_options =
+        #  kb_rules =
 
-      follow_mouse = 1;
+        follow_mouse = 1;
 
-      touchpad = {
-        natural_scroll = true;
+        touchpad = { natural_scroll = true; };
+
+        sensitivity = 0; # -1.0 to 1.0, 0 means no modification.
       };
 
-      sensitivity = 0; # -1.0 to 1.0, 0 means no modification.
-    };
+      general = {
+        # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
+        gaps_in = 10;
+        gaps_out = 25;
+        border_size = 2;
 
-    general = {
-    # See https://wiki.hyprland.org/Configuring/Variables/ for more
+        # Controled by stylix
+        #     "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
+        #     "col.inactive_border" = "rgba(595959aa)";
 
-      gaps_in = 10;
-      gaps_out = 25;
-      border_size = 2;
+        # master or dwindle
+        layout = "dwindle";
 
-      # Controled by stylix
-#     "col.active_border" = "rgba(33ccffee) rgba(00ff99ee) 45deg";
-#     "col.inactive_border" = "rgba(595959aa)";
+        # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
+        allow_tearing = false;
+      };
 
-      # master or dwindle
-      layout = "dwindle";
+      dwindle = {
+        pseudotile = "yes";
+        preserve_split = "yes";
+      };
 
-    # Please see https://wiki.hyprland.org/Configuring/Tearing/ before you turn this on
-      allow_tearing = false;
-    };
+      master = { new_is_master = "false"; };
 
+      gestures = { workspace_swipe = "true"; };
 
-    dwindle = {
-      pseudotile = "yes";
-      preserve_split = "yes";
-    };
+      "windowrulev2" = [
+        # Picture-in-a-Picture (PIP) rules: Oddly, some need re-duplication.  This is because the window for
+        # PIP changes after on first launch, and will not inherant the rules...
+        #"opacity 0.95 0.75,title:^(Picture in picture)$"  # for opacity: [focus num] [bg num]
 
-    master = {
-      new_is_master = "false";
-    };
+        # Interestingly, the opacity rule above doesn't need the reduplication?
+        "pin,title:^(Picture in picture)$"
 
-   gestures = {
-      workspace_swipe = "true";
-    };
+        #windowrulev2=pin,title:^(Firefox)$ 
+        "float, title:^(Picture in picture)$"
 
+        #windowrulev2=float, title:^(Firefox)$
+        "size 25% 25%,title:^(Picture in picture)$"
 
+        #windowrulev2=size 25% 25%,title:^(Firefox)$ 
+        "move 72% 7%,title:^(Picture in picture)$"
+        #windowrulev2=move 72% 7%,title:^(Firefox)$ 
+      ];
 
-    "windowrulev2" = [
-      # Picture-in-a-Picture (PIP) rules: Oddly, some need re-duplication.  This is because the window for
-      # PIP changes after on first launch, and will not inherant the rules...
-      #"opacity 0.95 0.75,title:^(Picture in picture)$"  # for opacity: [focus num] [bg num]
-      
-      # Interestingly, the opacity rule above doesn't need the reduplication?
-      "pin,title:^(Picture in picture)$"
+      "$mod" = "SUPER";
 
-      #windowrulev2=pin,title:^(Firefox)$ 
-      "float, title:^(Picture in picture)$"
-
-      #windowrulev2=float, title:^(Firefox)$
-      "size 25% 25%,title:^(Picture in picture)$"
-
-      #windowrulev2=size 25% 25%,title:^(Firefox)$ 
-      "move 72% 7%,title:^(Picture in picture)$"
-      #windowrulev2=move 72% 7%,title:^(Firefox)$ 
-    ];
-
-
-    "$mod" = "SUPER";
-    
-
-    bind =
-      [
+      bind = [
         "$mod, Return, exec, alacritty"
         "$mod, E, exec, cosmic-files"
 
@@ -143,8 +123,7 @@
         "$mod, mouse:272, movewindow"
         "$mod, mouse:273, resizeActive"
 
-        "$mod SHIFT, C, exec, brave --app=\"https://chat.openai.com\""
-        
+        ''$mod SHIFT, C, exec, brave --app="https://chat.openai.com"''
 
         # Brightness
         ",XF86MonBrightnessUp, exec, brightnessctl set 10%+"
@@ -155,32 +134,26 @@
 
         ", Print, exec, grimblast copy area"
 
-	# Screenshot 
-        "$mod SHIFT, S,exec, grim -g \"$(slurp)\" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png" # screenshot of a region 
+        # Screenshot 
+        ''
+          $mod SHIFT, S,exec, grim -g "$(slurp)" - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png'' # screenshot of a region
         "$mod SHIFT CTRL, S, exec, grim - | wl-copy && wl-paste > ~/Pictures/Screenshots/Screenshot-$(date +%F_%T).png" # screenshot of the whole screen
 
         # Toggle Waybar
         "$mod SHIFT, B, exec, pkill -SIGUSR1 waybar"
 
         "$mod, V, togglefloating"
-      ]
-      ++ (
+      ] ++ (
         # workspaces
         # binds $mod + [shift +] {1..10} to [move to] workspace {1..10}
-        builtins.concatLists (builtins.genList (
-            x: let
-              ws = let
-                c = (x + 1) / 10;
-              in
-                builtins.toString (x + 1 - (c * 10));
-            in [
-              "$mod, ${ws}, workspace, ${toString (x + 1)}"
-              "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
-            ]
-          )
-          10)
-      );
-  };
+        builtins.concatLists (builtins.genList (x:
+          let
+            ws = let c = (x + 1) / 10; in builtins.toString (x + 1 - (c * 10));
+          in [
+            "$mod, ${ws}, workspace, ${toString (x + 1)}"
+            "$mod SHIFT, ${ws}, movetoworkspace, ${toString (x + 1)}"
+          ]) 10));
+    };
 
   };
 

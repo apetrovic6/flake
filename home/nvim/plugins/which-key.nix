@@ -13,8 +13,9 @@
         "<leader>c" = "Comment";
         "<leader>g" = "Git";
         "<leader>b" = "Buffers";
-        "<leader>fs" = "Search / Replace";
+        "<leader>s" = "Search / Replace";
         "<leader>d" = "Debug";
+        "<leader>l" = "lsp";
 
         "<C-Space>" = "Complete Completion";
         "<C-d>" = "Scroll Docs Down";

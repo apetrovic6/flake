@@ -9,6 +9,11 @@
           enable = true;
           settings.telemetry.enable = false;
 	};
+        nixd = {
+          enable = true;
+        autostart = true;
+      };
+        jsonls.enable = true;
 
         cssls.enable = true;
         
@@ -31,6 +36,14 @@
        "<leader>j" = "goto_next";
        "<leader>k" = "goto_prev";
       };
+keymaps.lspBuf = {
+        "gd" = "definition";
+        "gD" = "references";
+        "gt" = "type_definition";
+        "gi" = "implementation";
+        "K" = "hover";
+      };
 
   };
-} 
+
+  } 
