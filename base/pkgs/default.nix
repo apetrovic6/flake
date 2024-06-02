@@ -22,6 +22,7 @@
       "ideavim"
       "nixidea"
     ])
+
     vscode.fhs
     xfce.thunar
     bluetuith
