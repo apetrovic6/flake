@@ -6,7 +6,7 @@
 
     beacon.enable = true;
 
-      ui = {
+    ui = {
       border = "rounded"; # One of none, single, double, rounded, solid, shadow
       codeAction = "💡"; # Can be any symbol you want 💡
     };
@@ -34,7 +34,7 @@
 
       keys = {
         exec = "<CR>";
-        quit = ["<Esc>" "q"];
+        quit = [ "<Esc>" "q" ];
       };
 
     };
@@ -45,16 +45,14 @@
       virtualText = true;
     };
 
-    implement = {
-      enable = false;
-    };
+    implement = { enable = false; };
 
     rename = {
       autoSave = false;
       keys = {
 
         exec = "<CR>";
-        quit = ["<C-k>" "<Esc>"];
+        quit = [ "<C-k>" "<Esc>" ];
         select = "x";
       };
     };
@@ -77,13 +75,13 @@
       scrollDown = "<C-f>";
       scrollUp = "<C-b>";
     };
-    
+
   };
 
   programs.nixvim.keymaps = [
- {
+    {
       mode = "n";
-      key = "lgd";
+      key = "<leader>lgd";
       action = "<cmd>Lspsaga finder def<CR>";
       options = {
         desc = "Goto Definition";
@@ -92,7 +90,7 @@
     }
     {
       mode = "n";
-      key = "lgr";
+      key = "<leader>lgr";
       action = "<cmd>Lspsaga finder ref<CR>";
       options = {
         desc = "Goto References";
@@ -102,7 +100,7 @@
 
     {
       mode = "n";
-      key = "lgI";
+      key = "<leader>lgI";
       action = "<cmd>Lspsaga finder imp<CR>";
       options = {
         desc = "Goto Implementation";
@@ -112,7 +110,7 @@
 
     {
       mode = "n";
-      key = "lgT";
+      key = "<leader>lgT";
       action = "<cmd>Lspsaga peek_type_definition<CR>";
       options = {
         desc = "Type Definition";
@@ -122,7 +120,7 @@
 
     {
       mode = "n";
-      key = "lK";
+      key = "<leader>lK";
       action = "<cmd>Lspsaga hover_doc<CR>";
       options = {
         desc = "Hover";
@@ -172,7 +170,7 @@
 
     {
       mode = "n";
-      key = "l}";
+      key = "<leader>l}";
       action = "<cmd>Lspsaga diagnostic_jump_next<CR>";
       options = {
         desc = "Next Diagnostic";
@@ -182,7 +180,7 @@
 
     {
       mode = "n";
-      key = "l{";
+      key = "<leader>l{";
       action = "<cmd>Lspsaga diagnostic_jump_prev<CR>";
       options = {
         desc = "Previous Diagnostic";

@@ -1,4 +1,4 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -18,8 +18,11 @@
     kitty
     discord
     gnome.file-roller
-    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion ["ideavim" "nixidea"])
-    vscode.fhs 
+    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion [
+      "ideavim"
+      "nixidea"
+    ])
+    vscode.fhs
     xfce.thunar
     bluetuith
     lm_sensors
@@ -28,11 +31,12 @@
     insomnia
     wallust
     delve
+    go
 
     plex-media-player
     plexamp
     spotify
-    
+
     blender
 
     mangohud
@@ -40,11 +44,10 @@
     heroic
     bottles
   ];
-  
- 
+
   programs.steam = {
     enable = true;
-    gamescopeSession.enable = true; 
+    gamescopeSession.enable = true;
   };
 
   programs.gamemode.enable = true;
