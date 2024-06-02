@@ -2,7 +2,7 @@
 
 {
   programs.nixvim.plugins.none-ls = {
-  enable = true;
+    enable = true;
     enableLspFormat = true;
     sources = {
       # diagnostics = { mypy.enable = true; };
@@ -16,7 +16,7 @@
         black.enable = true;
         csharpier.enable = true;
         dart_format.enable = true;
+      };
     };
   };
-};
 }
