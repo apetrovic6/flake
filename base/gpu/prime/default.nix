@@ -1,7 +1,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  hardware.nvidia.powerManagement.finegrained = true;
   hardware.nvidia.prime = {
 
     offload = {
@@ -12,6 +11,8 @@
     intelBusId = "PCI:0:0:2";
     nvidiaBusId = "PCI:0:1:0";
   };
+
+#  hardware.nvidia.powerManagement.finegrained = true;
 
    specialisation = {
      gaming-time.configuration = {

@@ -27,6 +27,7 @@
     obsidian
     insomnia
     wallust
+    delve
 
     plex-media-player
     plexamp

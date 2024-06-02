@@ -11,8 +11,12 @@
 	settings = {
 
         mainBar = {
-            height = 20;
+            height = 10;
             layer = "top";
+            position = "top";
+            margin-top = 10;
+            margin-left = 20;
+            margin-right = 20;
             modules-left = ["cpu" "memory" "custom/weather" "mpris"];
             modules-center = ["hyprland/workspaces"];
            # modules-right = ["network" "pulseaudio" "backlight" "battery" "clock" "tray" "hyprland/language" "custom/wallpaper" "custom/power-menu"];
@@ -173,7 +177,7 @@
 }
 
 window#waybar {
-  margin-top: 5px;
+  border-radius: 20px;
 }
 
 

@@ -12,11 +12,11 @@
       extensions.dap-go = {
           enable = true;    
 
-        delve = {
-           path = "dlv";
-           port = "\${port}";
-           args = ["dap" "-l" "127.0.0.1:\${port}"];
-        };
+#        delve = {
+#           path = "dlv";
+#           port = "\${port}";
+#           args = ["dap" "-l" "127.0.0.1:\${port}"];
+#        };
       };
 
     };
