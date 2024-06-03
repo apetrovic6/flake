@@ -182,11 +182,6 @@
         border-radius: 20px;
       }
 
-
-      #custom-launcher {  
-        margin-right: 8px;
-      }
-
       #clock,
       #battery,
       #cpu,
@@ -212,7 +207,7 @@
       #power {
           border-radius: 5px;
           margin: 10px 20px 10px 0px;
-          padding: 0px 10px;
+          padding: 0px 5px;
           min-width: 50px;
       }
 
@@ -237,11 +232,9 @@
       }
 
       #custom-launcher{
-          margin-right: 25px;
-      }
-
-      #custom-launcher {
-        font-size: 30px;
+        margin-right: 20px;
+        font-size: 35px;
+        color: #85daff;
       }
 
       window#waybar.hidded {
