@@ -211,7 +211,7 @@
       #tray,
       #power {
           border-radius: 5px;
-          margin: 5px 20px 5px 0px;
+          margin: 10px 20px 10px 0px;
           padding: 0px 10px;
           min-width: 50px;
       }
@@ -227,9 +227,10 @@
       }
 
       #workspaces button {
-        margin-top: 7px;
-        margin-left: 7px;
         border-radius: 8px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 10px;
       }
       #cpu{
           margin-left: 20px;
@@ -240,12 +241,7 @@
       }
 
       #custom-launcher {
-        font-size: 23px;
-        background: @base01;
-        border-radius: 5px;
-        min-width: 40px; 
-        margin-top: 5px;
-        margin-bottom: 5px;
+        font-size: 30px;
       }
 
       window#waybar.hidded {
