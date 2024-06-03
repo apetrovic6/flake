@@ -17,6 +17,7 @@
     brave
     kitty
     discord
+    yazi
     gnome.file-roller
     (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion [
       "ideavim"
