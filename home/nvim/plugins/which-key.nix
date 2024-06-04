@@ -15,7 +15,7 @@
       "<leader>b" = "Buffers";
       "<leader>s" = "Search / Replace";
       "<leader>d" = "Debug";
-      "<leader>l" = "lsp";
+      "<leader>l" = "LSP";
       "<leader>lg" = "Go To";
 
       "<C-Space>" = "Complete Completion";
