@@ -140,6 +140,9 @@
     clipboard.providers.wl-copy.enable = true;
     extraPlugins = with pkgs.vimPlugins; [ flutter-tools-nvim ];
 
-    extraConfigLua = "";
+    extraConfigLua = ''
+      require("flutter-tools").setup {}
+
+    '';
   };
 }
