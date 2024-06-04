@@ -42,18 +42,19 @@
     };
 
     plugins = {
-      lazy.enable = true;
+      persistence.enable = true;
       lsp-format.enable = true;
       lualine.enable = true;
       oil.enable = true;
       gitgutter.enable = true;
+      treesitter-context.enable = true;
       multicursors.enable = true;
       fzf-lua.enable = true;
       luasnip.enable = true;
       nix.enable = true;
       nix-develop.enable = true;
       notify.enable = true;
-      #      qmk.enable = true;
+      # qmk.enable = true;
       indent-o-matic.enable = true;
       indent-blankline = {
         enable = true;
@@ -78,7 +79,7 @@
 
     plugins.leap = { enable = true; };
 
-    plugins.barbecue = { enable = true; };
+    # plugins.barbecue = { enable = true; };
 
     plugins.dressing = {
       enable = true;
@@ -90,8 +91,6 @@
       nixvimInjections = true;
       indent = true;
     };
-
-    plugins.treesitter-context.enable = true;
 
     keymaps = [
 
@@ -139,10 +138,8 @@
     ];
 
     clipboard.providers.wl-copy.enable = true;
+    extraPlugins = with pkgs.vimPlugins; [ flutter-tools-nvim ];
 
-    #  colorschemes.gruvbox.enable = true;
-    # colorschemes.nord.enable = true;
-
+    extraConfigLua = "";
   };
-
 }
