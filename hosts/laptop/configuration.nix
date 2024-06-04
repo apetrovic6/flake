@@ -5,79 +5,81 @@
 { config, pkgs, userSettings, systemSettings, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ../../hyprlandWM.nix 
-      ../../base/boot
-      ../../base/misc/zsa
-      ../../base/networking
-      ../../base/cuda
-      ../../base/config
-      ../../base/shell
-      ../../base/sound
-      ../../base/asus
-      ../../base/pkgs
-      ../../base/gpu/intel
-      ../../base/gpu/nvidia
-      ../../base/gpu/prime
-      ../../base/fonts
-      ../../base/users
-      ../../base/services
-      ../../base/desktop
-      ../../base/stylix
-      ../../base/virtualization
-      ../../base/virtualization/intel
-      ../../base/virtualization/pci-passthrough
-      ./hardware.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ../../hyprlandWM.nix
+    ../../base/boot
+    ../../base/misc/zsa
+    ../../base/networking
+    ../../base/cuda
+    ../../base/config
+    ../../base/shell
+    ../../base/sound
+    ../../base/asus
+    ../../base/pkgs
+    ../../base/gpu/intel
+    ../../base/gpu/nvidia
+    ../../base/gpu/prime
+    ../../base/fonts
+    ../../base/users
+    ../../base/services
+    ../../base/desktop
+    ../../base/stylix
+    ../../base/virtualization
+    ../../base/virtualization/intel
+    ../../base/virtualization/pci-passthrough
+    ./hardware.nix
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
-#  boot.kernelPackages = pkgs.linuxPackages_testing;
+  #  boot.kernelPackages = pkgs.linuxPackages_testing;
   systemd.network.wait-online.enable = false;
   boot.initrd.systemd.network.wait-online.enable = false;
 
+  boot.kernelParams = [
+    "i915.enable_dpcd_backlight=1"
+    "nvidia.NVreg_EnableBacklightHandler=0"
+    "nvidia.NVreg_RegistryDwords=EnableBrightnessControl=0"
+  ];
 
-
- # boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_testing.override {
- #    argsOverride = rec {
- #      src = pkgs.fetchurl {
- #            url = "https://git.kernel.org/pub/scm/linux/kernel/git/tiwai/sound.git/snapshot/sound-6.10-rc1.tar.gz";
- #            sha256 = "sha256-dd3QIge9qX6286gFBh/FumaCh23ZvQtgRO3Cew/i+iM=";
- #      };
- #      version = "6.10-rc1";
- #      modDirVersion = "6.9.0-rc5";
- #      };
- #  });
+  # boot.kernelPackages = pkgs.linuxPackagesFor (pkgs.linux_testing.override {
+  #    argsOverride = rec {
+  #      src = pkgs.fetchurl {
+  #            url = "https://git.kernel.org/pub/scm/linux/kernel/git/tiwai/sound.git/snapshot/sound-6.10-rc1.tar.gz";
+  #            sha256 = "sha256-dd3QIge9qX6286gFBh/FumaCh23ZvQtgRO3Cew/i+iM=";
+  #      };
+  #      version = "6.10-rc1";
+  #      modDirVersion = "6.9.0-rc5";
+  #      };
+  #  });
 
   programs.light.enable = true;
 
   services.displayManager.cosmic-greeter.enable = true;
 
-# services.thermald.enable = true;
+  # services.thermald.enable = true;
 
-# services.tlp = {
-#  enable = false;
-#  settings = {
-#    CPU_SCALING_GOVERNOR_ON_AC = "performance";
-#    CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
+  # services.tlp = {
+  #  enable = false;
+  #  settings = {
+  #    CPU_SCALING_GOVERNOR_ON_AC = "performance";
+  #    CPU_SCALING_GOVERNOR_ON_BAT = "powersave";
 
-#   CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
-#   CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
+  #   CPU_ENERGY_PERF_POLICY_ON_BAT = "power";
+  #   CPU_ENERGY_PERF_POLICY_ON_AC = "performance";
 
-#    CPU_MIN_PERF_ON_AC = 0;
-#    CPU_MAX_PERF_ON_AC = 100;
-#    CPU_MIN_PERF_ON_BAT = 0;
-    #CPU_MAX_PERF_ON_BAT = 50;
+  #    CPU_MIN_PERF_ON_AC = 0;
+  #    CPU_MAX_PERF_ON_AC = 100;
+  #    CPU_MIN_PERF_ON_BAT = 0;
+  #CPU_MAX_PERF_ON_BAT = 50;
 
-    # START_CHARGE_THRESH_BAT0 = 40;
-    # STOP_CHARGE_THRESH_BAT0 = 80;
-#  };
-# };
+  # START_CHARGE_THRESH_BAT0 = 40;
+  # STOP_CHARGE_THRESH_BAT0 = 80;
+  #  };
+  # };
 
- networking.hostName = "zephyrus"; # Define your hostname.
-  
+  networking.hostName = "zephyrus"; # Define your hostname.
 
-#  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+  #  networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
@@ -100,25 +102,21 @@
     LC_TELEPHONE = "hr_HR.UTF-8";
     LC_TIME = "hr_HR.UTF-8";
   };
-   
 
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "iHD"; };
-
-
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
-   services.libinput.enable = true;
+  services.libinput.enable = true;
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  ];
+  environment.systemPackages = with pkgs; [ ];
 
   # Some programs need SUID wrappers, can be configured further or are
   #
@@ -148,5 +146,5 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }
