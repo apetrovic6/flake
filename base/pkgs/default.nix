@@ -23,6 +23,7 @@
       "ideavim"
       "nixidea"
     ])
+    android-studio
 
     vscode.fhs
     xfce.thunar
