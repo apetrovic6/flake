@@ -4,7 +4,7 @@
   # stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
 
   #stylix.image = /home/apetrovic/Pictures/Wallpapers/38.jpg;
-  stylix.image = /home/apetrovic/Pictures/Wallpapers/25.jpg;
+  stylix.image = /home/apetrovic/Pictures/Wallpapers/2.jpg;
 
   stylix.polarity = "dark";
 
