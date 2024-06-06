@@ -5,26 +5,25 @@
 { config, pkgs, userSettings, systemSettings, stylix, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ../../hyprlandWM.nix 
-      ../../base/boot
-      ../../base/misc/zsa
-      ../../base/networking
-      ../../base/cuda
-      ../../base/config
-      ../../base/shell
-      ../../base/pkgs
-      ../../base/gpu/nvidia
-      ../../base/sound
-      ../../base/fonts
-      ../../base/users
-      ../../base/desktop
-      ../../base/stylix
-      ../../base/services
-      ../../base/virtualization
-      ./hardware.nix
-    ];
+  imports = [ # Include the results of the hardware scan.
+    ../../hyprlandWM.nix
+    ../../base/boot
+    ../../base/misc/zsa
+    ../../base/networking
+    ../../base/cuda
+    ../../base/config
+    ../../base/shell
+    ../../base/pkgs
+    ../../base/gpu/nvidia
+    ../../base/sound
+    ../../base/fonts
+    ../../base/users
+    ../../base/desktop
+    ../../base/stylix
+    ../../base/services
+    ../../base/virtualization
+    ./hardware.nix
+  ];
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
@@ -64,7 +63,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -76,14 +74,18 @@
     jetbrains.pycharm-professional
     jetbrains.goland
     jetbrains.datagrip
-    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.rider ["ideavim" "nixidea"])
+    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.rider [
+      "ideavim"
+      "nixidea"
+    ])
   ];
 
   services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
 
   hardware.bluetooth.enable = true;
-  
+  hardware.bluetooth.powerOnBoot = true;
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -111,5 +113,5 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
 
-  nix.settings.experimental-features = [ "nix-command" "flakes"];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 }

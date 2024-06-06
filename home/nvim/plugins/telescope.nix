@@ -1,15 +1,10 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
-  programs.nixvim = {
-    plugins = {
-      telescope.enable = true;
-    };
-  };
-
+  programs.nixvim = { plugins = { telescope.enable = true; }; };
 
   programs.nixvim.keymaps = [
-     {
+    {
       action = "<cmd>lua require('telescope.builtin').live_grep()<CR>";
       key = "<leader>fg";
       options.desc = "Live Grep";
@@ -31,6 +26,12 @@
       action = "<cmd>lua require('telescope.builtin').help_tags()<cr>";
       key = "<leader>fh";
       options.desc = "Find Help Tags";
+    }
+
+    {
+      action = "<cmd>Telescope flutter commands<cr>";
+      key = "<leader>ut";
+      options.desc = "Flutter Commands";
     }
 
   ];

@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ pkgs, ... }:
 
 {
   imports = [
@@ -142,7 +142,7 @@
 
     extraConfigLua = ''
       require("flutter-tools").setup {}
-
+      require('telescope').load_extension('flutter')
     '';
   };
 }

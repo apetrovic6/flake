@@ -19,11 +19,11 @@
     discord
     yazi
     gnome.file-roller
-    (pkgs.jetbrains.plugins.addPlugins pkgs.jetbrains.clion [
-      "ideavim"
-      "nixidea"
-    ])
+    (jetbrains.plugins.addPlugins jetbrains.clion [ "ideavim" "nixidea" ])
+
     android-studio
+    flutter
+    jdk17
 
     vscode.fhs
     xfce.thunar
