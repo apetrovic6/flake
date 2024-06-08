@@ -70,6 +70,16 @@
       };
     };
 
+    plugins.mini = {
+      enable = true;
+      modules = {
+        ai = {
+          n_lines = 50;
+          search_method = "cover_or_next";
+        };
+        surround = { };
+      };
+    };
     plugins.lspkind = {
       enable = true;
       cmp.enable = true;
@@ -138,11 +148,24 @@
     ];
 
     clipboard.providers.wl-copy.enable = true;
-    extraPlugins = with pkgs.vimPlugins; [ flutter-tools-nvim ];
+    extraPlugins = with pkgs.vimPlugins; [ flutter-tools-nvim roslyn-nvim ];
 
     extraConfigLua = ''
       require("flutter-tools").setup {}
       require('telescope').load_extension('flutter')
+
+      local on_attach = function(_, bufnr)
+      end
+
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+       
+      require("roslyn").setup({
+          dotnet_cmd = "dotnet", -- this is the default
+          roslyn_version = "4.8.0-3.23475.7", -- this is the default
+          on_attach = on_attach, -- required
+          capabilities = capabilities, -- required
+      })
     '';
   };
 }

@@ -4,7 +4,6 @@
   environment.systemPackages = with pkgs; [
     pciutils
     gcc
-
     vim
     nh
     brightnessctl
@@ -19,11 +18,11 @@
     discord
     yazi
     gnome.file-roller
-    (jetbrains.plugins.addPlugins jetbrains.clion [ "ideavim" "nixidea" ])
-
-    android-studio
-    flutter
-    jdk17
+    (jetbrains.plugins.addPlugins jetbrains.clion [
+      "ideavim"
+      "nixidea"
+      "github-copilot"
+    ])
 
     vscode.fhs
     xfce.thunar
@@ -33,8 +32,6 @@
     obsidian
     insomnia
     wallust
-    delve
-    go
 
     plex-media-player
     plexamp
