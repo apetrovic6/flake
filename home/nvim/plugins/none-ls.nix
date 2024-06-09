@@ -11,6 +11,7 @@
         markdownlint.enable = true;
         shellharden.enable = true;
         clang_format.enable = true;
+        gofmt.enable = true;
         prettierd.enable = true;
         stylua.enable = true;
         black.enable = true;
