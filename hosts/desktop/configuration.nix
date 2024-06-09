@@ -22,6 +22,7 @@
     ../../base/stylix
     ../../base/services
     ../../base/virtualization
+    ../../base/bluetooth
     ./hardware.nix
   ];
 
@@ -80,11 +81,7 @@
     ])
   ];
 
-  services.blueman.enable = true;
   services.gnome.gnome-keyring.enable = true;
-
-  hardware.bluetooth.enable = true;
-  hardware.bluetooth.powerOnBoot = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

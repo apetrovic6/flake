@@ -24,6 +24,7 @@
     ../../base/services
     ../../base/desktop
     ../../base/stylix
+    ../../base/bluetooth
     ../../base/virtualization
     ../../base/virtualization/intel
     ../../base/virtualization/pci-passthrough
