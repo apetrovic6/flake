@@ -31,6 +31,7 @@
     killall
     obsidian
     insomnia
+    postman
     wallust
 
     plex-media-player
