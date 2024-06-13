@@ -5,7 +5,6 @@
     enable = true;
     enableLspFormat = true;
     sources = {
-      # diagnostics = { mypy.enable = true; };
       formatting = {
         nixfmt.enable = true;
         markdownlint.enable = true;
@@ -14,7 +13,6 @@
         gofmt.enable = true;
         prettierd.enable = true;
         stylua.enable = true;
-        black.enable = true;
         csharpier.enable = true;
         dart_format.enable = true;
       };

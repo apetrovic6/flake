@@ -1,11 +1,11 @@
 { config, pkgs, lib, userSettings, inputs, ... }:
+let nixvim = inputs.nixvim.packages."x86_64-linux".default;
 
-{
+in {
   imports = [
     inputs.hyprland.homeManagerModules.default
-    inputs.nixvim.homeManagerModules.nixvim
+    #    inputs.nixvim.nixvim.homeManagerModules.nixvim
     ./hypr
-    ./nvim
     ./starship
     ./alacritty
     ./shell-config.nix
@@ -19,20 +19,21 @@
   home.username = userSettings.username;
   home.homeDirectory = "/home/${userSettings.username}";
 
-  home.packages = with pkgs; [
-    htop
-    btop
-    curl
-    tree
-    zoxide
-    protonup
-    ripgrep
-    unzip
-    p7zip
-    jq
-    fzf
-    nmap
-    usbutils
+  home.packages = [
+    pkgs.htop
+    pkgs.btop
+    pkgs.curl
+    pkgs.tree
+    pkgs.zoxide
+    pkgs.protonup
+    pkgs.ripgrep
+    pkgs.unzip
+    pkgs.p7zip
+    pkgs.jq
+    pkgs.fzf
+    pkgs.nmap
+    pkgs.usbutils
+    nixvim
   ];
 
   programs.git = {
