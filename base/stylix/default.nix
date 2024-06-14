@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   stylix.enable = true;
@@ -22,6 +22,9 @@
     desktop = 1.0;
     popups = 1.0;
   };
+
+  stylix.targets.chromium.enable = true;
+  stylix.targets.nixvim.enable = true;
 
   stylix.targets.plymouth.enable = true;
 

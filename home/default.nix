@@ -1,10 +1,8 @@
 { config, pkgs, lib, userSettings, inputs, ... }:
 let nixvim = inputs.nixvim.packages."x86_64-linux".default;
-
 in {
   imports = [
     inputs.hyprland.homeManagerModules.default
-    #    inputs.nixvim.nixvim.homeManagerModules.nixvim
     ./hypr
     ./starship
     ./alacritty

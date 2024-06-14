@@ -13,6 +13,7 @@
     git
     fastfetch
     firefox
+    vlc
     brave
     kitty
     discord
