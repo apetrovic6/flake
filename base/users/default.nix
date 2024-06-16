@@ -26,4 +26,6 @@
       ];
   };
 
+  nix.settings.trusted-users = [ userSettings.username ];
+
 }
