@@ -25,6 +25,7 @@
       "github-copilot"
     ])
 
+    devenv
     vscode.fhs
     xfce.thunar
     bluetuith
@@ -51,6 +52,8 @@
     enable = true;
     gamescopeSession.enable = true;
   };
+
+  programs.direnv.enable = true;
 
   programs.gamemode.enable = true;
 }

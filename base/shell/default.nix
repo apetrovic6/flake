@@ -1,10 +1,10 @@
-{ config, pkgs, ...}:
+{ config, pkgs, ... }:
 
 {
 
   environment.shells = with pkgs; [ bash zsh ];
   users.defaultUserShell = pkgs.zsh;
-  
+
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -13,7 +13,16 @@
 
     ohMyZsh = {
       enable = true;
-      plugins = [ "git" "sudo" "web-search" "copypath" "copyfile" "copybuffer" "dirhistory" "podman"];
+      plugins = [
+        "git"
+        "sudo"
+        "web-search"
+        "copypath"
+        "copyfile"
+        "copybuffer"
+        "dirhistory"
+        "podman"
+      ];
       theme = "agnoster";
     };
   };
