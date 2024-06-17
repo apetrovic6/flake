@@ -62,7 +62,7 @@
         preserve_split = "yes";
       };
 
-      master = { new_is_master = "false"; };
+      #      master = { new_is_master = "false"; };
 
       gestures = { workspace_swipe = "true"; };
 
