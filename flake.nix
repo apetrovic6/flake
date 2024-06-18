@@ -141,6 +141,35 @@
 
           ];
         };
+
+        cerberus = lib.nixosSystem {
+          inherit system;
+
+          specialArgs = {
+            inherit userSettings;
+            inherit systemSettings;
+            inherit inputs;
+          };
+
+          modules = [
+            ./hosts/server/configuration.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.extraSpecialArgs = {
+                inherit userSettings;
+                inherit systemSettings;
+                inherit inputs;
+              };
+
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.${userSettings.username} = {
+                imports = [ ./home/server ];
+              };
+            }
+
+          ];
+        };
       };
     };
 }

@@ -1,13 +1,13 @@
-{ config, pkgs, lib, ...}:
-{
+{ config, pkgs, lib, ... }: {
 
+  boot.kernelParams = [ "nvidia_drm.fbdev=1" ];
   hardware.opengl = {
-      enable = true;
-      driSupport = true;
-      driSupport32Bit = true;
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
   };
 
-  services.xserver.videoDrivers = ["nvidia"];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia = {
     modesetting.enable = true;
