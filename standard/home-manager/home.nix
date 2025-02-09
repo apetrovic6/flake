@@ -27,6 +27,7 @@
       outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
+      
 
       # You can also add overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
@@ -47,21 +48,39 @@
 
   # TODO: Set your username
   home = {
-    username = "your-username";
-    homeDirectory = "/home/your-username";
+    username = "apetrovic";
+    homeDirectory = "/home/apetrovic";
   };
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-  # home.packages = with pkgs; [ steam ];
+   home.packages = with pkgs; [ steam devenv yazi ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.git = {
+    enable = true;
+    lfs.enable = true;
+    userName = "apetrovic6";
+    userEmail = "petrovicante6@gmail.com";
+  };
+
+  programs.zellij = {
+  	enable = true;
+  	enableBashIntegration = true;
+	enableZshIntegration = true;
+	
+  };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
 
+  nix = {
+    package = pkgs.nix;
+    settings.experimental-features = ["nix-command" "flakes"];
+  };
+
+    # Allow insecure .NET 6
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "23.05";
 }
