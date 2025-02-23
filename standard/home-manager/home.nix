@@ -54,7 +54,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-   home.packages = with pkgs; [ steam devenv yazi zellij ];
+   home.packages = with pkgs; [ steam devenv yazi zellij fzf zoxide bitwarden-desktop ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
@@ -71,6 +71,13 @@
 	enableZshIntegration = true;
 	
   };
+
+programs.direnv = {
+   enable = true;
+   nix-direnv.enable = true;
+   enableZshIntegration = true;
+   enableBashIntegration = true;
+};
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
