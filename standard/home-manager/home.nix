@@ -54,7 +54,7 @@
 
   # Add stuff for your user as you see fit:
   # programs.neovim.enable = true;
-   home.packages = with pkgs; [ steam devenv yazi zellij fzf zoxide bitwarden-desktop ];
+   home.packages = with pkgs; [ steam devenv yazi zellij fzf zoxide bitwarden-desktop orca-slicer ];
 
   # Enable home-manager and git
   programs.home-manager.enable = true;
